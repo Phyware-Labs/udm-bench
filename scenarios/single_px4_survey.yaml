@@ -1,0 +1,29 @@
+id: single_px4_survey
+composition: single-vendor
+vendors: [px4]
+world: px4_default_world
+description: >
+  Single PX4 SITL drone flying a grid survey pattern over a fixed area.
+  Long-duration scenario useful for sensor-drift and battery faults.
+mission_template:
+  duration_s: 240
+  takeoff_alt_m: 12.0
+  survey:
+    pattern: grid
+    width_m: 40
+    length_m: 40
+    spacing_m: 5
+    speed_mps: 4.0
+  recorder:
+    bag_topics:
+      - /fmu/out/vehicle_global_position
+      - /fmu/out/vehicle_attitude
+      - /fmu/out/battery_status
+      - /fmu/out/sensor_baro
+fault_mix:
+  fault_probability: 0.5
+  eligible_fault_ids:
+    - px4_gps_dropout
+    - px4_battery_sag
+    - px4_baro_drift
+    - px4_imu_saturation

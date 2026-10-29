@@ -1,0 +1,145 @@
+# udm-bench fault taxonomy: the answer label space every condition classifies into.
+#
+# This is the public part of the fault catalogue: the id, platform and the short
+# description shown to the agent in the ``submit_diagnosis`` tool. The injector
+# implementations behind these faults are not part of this repository (see README).
+#
+# Schema:
+#   version: int
+#   faults:
+#     - id: str           # globally unique, snake_case
+#       vendor: str       # "turtlebot3" | "px4"
+#       platform: str     # human label
+#       name: str         # short human-readable name
+#       description: str  # one-paragraph description (shown to the agent)
+version: 1
+faults:
+  - id: tb3_lidar_dropout
+    vendor: turtlebot3
+    platform: TurtleBot3
+    name: Lidar dropout
+    description: >
+      The 2D lidar driver stops publishing sensor_msgs/LaserScan for a contiguous
+      window. The Nav2 local planner will lose its obstacle layer until the stream
+      resumes.
+
+  - id: tb3_lidar_noise
+    vendor: turtlebot3
+    platform: TurtleBot3
+    name: Lidar noise spike
+    description: >
+      Gaussian noise is added to a contiguous subset of laser rays for a time
+      window, producing phantom obstacles.
+
+  - id: tb3_motor_stall
+    vendor: turtlebot3
+    platform: TurtleBot3
+    name: Motor stall (single wheel)
+    description: >
+      One wheel cmd_vel is suppressed so commanded velocity does not actuate that
+      wheel. The robot veers and odometry diverges from the commanded trajectory.
+
+  - id: tb3_odometry_drift
+    vendor: turtlebot3
+    platform: TurtleBot3
+    name: Odometry drift
+    description: >
+      An accumulating bias is injected into nav_msgs/Odometry so the wheel
+      odometry estimate slowly diverges from ground truth.
+
+  - id: tb3_imu_bias
+    vendor: turtlebot3
+    platform: TurtleBot3
+    name: IMU bias
+    description: >
+      A constant offset is added to the gyro and/or accelerometer channels of
+      sensor_msgs/Imu, causing heading drift downstream.
+
+  - id: tb3_amcl_failure
+    vendor: turtlebot3
+    platform: TurtleBot3
+    name: AMCL convergence failure
+    description: >
+      AMCL fails to converge — either initial pose is set incorrectly or the
+      particle filter is kicked into a degenerate state mid-mission.
+
+  - id: tb3_map_mismatch
+    vendor: turtlebot3
+    platform: TurtleBot3
+    name: Map mismatch (obstacle moved)
+    description: >
+      A static obstacle is moved in the Gazebo world without the corresponding
+      update to the global map. Nav2 plans into now-occupied free space (or around
+      now-cleared blocked space).
+
+  - id: tb3_costmap_inflation_drift
+    vendor: turtlebot3
+    platform: TurtleBot3
+    name: Costmap inflation parameter drift
+    description: >
+      The inflation_radius parameter on the local costmap is drifted upward at
+      runtime, causing the robot to refuse to navigate through corridors that were
+      previously traversable.
+
+  - id: tb3_battery_depletion
+    vendor: turtlebot3
+    platform: TurtleBot3
+    name: Battery sudden depletion
+    description: >
+      The simulated BatteryState voltage cliffs from nominal to depleted in a
+      narrow window.
+
+  - id: px4_gps_dropout
+    vendor: px4
+    platform: PX4 SITL drone
+    name: GPS dropout / multipath
+    description: >
+      VehicleGlobalPosition stops publishing or its accuracy field degrades to
+      multipath-level values. EKF2 should switch to inertial-only.
+
+  - id: px4_imu_saturation
+    vendor: px4
+    platform: PX4 SITL drone
+    name: IMU saturation
+    description: >
+      VehicleAttitude becomes unreliable due to simulated IMU saturation (large
+      values clamped or NaN).
+
+  - id: px4_motor_failure
+    vendor: px4
+    platform: PX4 SITL drone
+    name: Single motor failure
+    description: >
+      Asymmetric thrust injected via the PX4 actuator-control override path — one
+      rotor produces 0 thrust while siblings continue normally.
+
+  - id: px4_battery_sag
+    vendor: px4
+    platform: PX4 SITL drone
+    name: Battery sag (non-monotonic)
+    description: >
+      BatteryStatus.voltage_v is overridden to follow a non-monotonic profile that
+      crosses the low-voltage failsafe threshold.
+
+  - id: px4_rc_link_loss
+    vendor: px4
+    platform: PX4 SITL drone
+    name: RC link loss → failsafe
+    description: >
+      The simulated RC input stream is cut, triggering PX4's RC-loss failsafe.
+
+  - id: px4_baro_drift
+    vendor: px4
+    platform: PX4 SITL drone
+    name: Baro drift
+    description: >
+      Barometer altitude drifts so the EKF altitude estimate diverges from ground-
+      truth.
+
+  - id: px4_mag_interference
+    vendor: px4
+    platform: PX4 SITL drone
+    name: Magnetometer interference
+    description: >
+      Magnetometer readings are perturbed by a simulated interference field
+      causing heading error.

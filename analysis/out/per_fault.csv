@@ -1,0 +1,10 @@
+fault,n,evidence,gpt-5 A,gpt-5 B,gpt-5 G,gpt-5 C,gpt-5-mini A,gpt-5-mini B,gpt-5-mini G,gpt-5-mini C
+px4_gps_dropout,5,5,0,1,0,3,0,0,0,3
+px4_imu_saturation,4,4,2,0,4,4,1,0,2,4
+tb3_costmap_inflation_drift,1,1,0,0,0,0,1,0,0,0
+tb3_imu_bias,2,2,1,0,0,0,0,0,0,0
+tb3_lidar_dropout,1,1,0,1,0,1,1,0,0,1
+tb3_lidar_noise,3,3,1,0,1,2,0,0,2,3
+tb3_map_mismatch,1,0,0,0,0,0,0,0,0,0
+tb3_motor_stall,3,0,0,0,0,0,0,0,0,0
+tb3_odometry_drift,3,0,0,0,0,0,0,0,0,0

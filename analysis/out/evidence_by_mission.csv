@@ -1,0 +1,24 @@
+fault,composition,mission,statistic,value,clean max,margin,detectable,reason
+px4_gps_dropout,multi-vendor,34f57240a51f,gps_gap_s,8.216,0.615,13.35x,yes,above every clean mission
+px4_gps_dropout,multi-vendor,3b8681137ded,gps_gap_s,8.248,0.615,13.40x,yes,above every clean mission
+px4_gps_dropout,multi-vendor,714c8c7497ad,gps_gap_s,8.320,0.615,13.52x,yes,above every clean mission
+px4_gps_dropout,multi-vendor,b8783863d177,gps_gap_s,8.392,0.615,13.64x,yes,above every clean mission
+px4_gps_dropout,multi-vendor,ebb43f8a3966,gps_gap_s,8.424,0.615,13.69x,yes,above every clean mission
+px4_imu_saturation,multi-vendor,260e025ef10f,att_nonfinite,306.000,0.000,--,yes,above every clean mission
+px4_imu_saturation,multi-vendor,6dae1e6e2ed3,att_nonfinite,322.000,0.000,--,yes,above every clean mission
+px4_imu_saturation,multi-vendor,927b15ec8f72,att_nonfinite,279.000,0.000,--,yes,above every clean mission
+px4_imu_saturation,multi-vendor,efd884f86c04,att_nonfinite,332.000,0.000,--,yes,above every clean mission
+tb3_costmap_inflation_drift,single-vendor,b9cb7cf63f92,local_costmap_occ_max,0.967,0.500,1.93x,yes,above every clean mission
+tb3_imu_bias,multi-vendor,fbb085b6422b,imu_odom_wz_resid,0.087,0.067,1.29x,yes,above every clean mission
+tb3_imu_bias,single-vendor,da536aedf935,imu_odom_wz_resid,0.075,0.055,1.36x,yes,above every clean mission
+tb3_lidar_dropout,single-vendor,69b36b529145,scan_gap_s,5.210,0.606,8.60x,yes,above every clean mission
+tb3_lidar_noise,multi-vendor,c5c0b286cc74,scan_rough_max,0.040,0.025,1.61x,yes,above every clean mission
+tb3_lidar_noise,multi-vendor,fde57c479e53,scan_rough_max,0.057,0.025,2.31x,yes,above every clean mission
+tb3_lidar_noise,single-vendor,af1acaec5dde,scan_rough_max,0.041,0.024,1.68x,yes,above every clean mission
+tb3_map_mismatch,single-vendor,6b25ddc3beed,amcl_cov_max,2.212,2.367,0.93x,no,within clean-mission range
+tb3_motor_stall,multi-vendor,53ff451c7118,cmd_odom_resid,--,0.329,--,no,no turtlebot3 telemetry recorded
+tb3_motor_stall,single-vendor,c9b3a25329df,cmd_odom_resid,0.297,0.360,0.83x,no,within clean-mission range
+tb3_motor_stall,single-vendor,e02889f74534,cmd_odom_resid,0.221,0.360,0.61x,no,within clean-mission range
+tb3_odometry_drift,single-vendor,1c73f25a6de2,odom_amcl_div,0.954,1.996,0.48x,no,within clean-mission range
+tb3_odometry_drift,single-vendor,b546d706eb89,odom_amcl_div,0.681,1.996,0.34x,no,within clean-mission range
+tb3_odometry_drift,single-vendor,e76276bf3fe0,odom_amcl_div,0.792,1.996,0.40x,no,within clean-mission range

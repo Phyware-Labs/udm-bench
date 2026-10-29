@@ -1,0 +1,89 @@
+# UDM-Bench simulation compose file.
+#
+# Profiles:
+#   turtlebot3   — TurtleBot3 + Nav2 (single-vendor TB3 missions)
+#   px4          — PX4 SITL + Gazebo + px4_msgs bridge (single-vendor PX4 missions)
+#   multi-vendor — Both above concurrently, sharing multi_vendor_warehouse
+#
+# Run from the repo root:
+#   docker compose -f sim/docker-compose.yml --profile turtlebot3 up
+#   docker compose -f sim/docker-compose.yml --profile px4         up
+#   docker compose -f sim/docker-compose.yml --profile multi-vendor up
+#
+# Host portability notes:
+#   * Volume mounts use the ``:Z`` suffix so SELinux-enforcing hosts (Rocky 8,
+#     RHEL 8/9, Fedora) relabel the bind-mount per-container. Docker on
+#     Ubuntu ignores the suffix harmlessly.
+#   * Per-mission env (``UDM_BENCH_MISSION_ID``, ``UDM_BENCH_RUNS_ROOT``,
+#     ``UDM_BENCH_WORLD``, ``UDM_BENCH_BAG_DURATION_S``) is forwarded into
+#     the container so the launch graphs in ``sim/launch/`` write the bag
+#     under ``$UDM_BENCH_RUNS_ROOT/$UDM_BENCH_MISSION_ID/``.
+#   * ``UDM_BENCH_RUNS_ROOT`` defaults to ``../runs`` (repo-relative).
+#     Override on the host with e.g. ``UDM_BENCH_RUNS_ROOT=/data/runs``.
+
+name: udm-bench
+
+x-common-env: &common-env
+  ROS_DOMAIN_ID: "0"
+  RMW_IMPLEMENTATION: rmw_cyclonedds_cpp
+  # Headless Gazebo (no display) — required for GitHub Actions runners.
+  DISPLAY: ""
+  GAZEBO_HEADLESS: "1"
+  # Per-mission handoff. A mission runner sets these
+  # via the host environment so the launch files in sim/launch/ pick them
+  # up. Defaults below are safe for interactive ``docker compose up``.
+  UDM_BENCH_MISSION_ID: "${UDM_BENCH_MISSION_ID:-interactive}"
+  UDM_BENCH_RUNS_ROOT: "/runs"
+  UDM_BENCH_BAG_DURATION_S: "${UDM_BENCH_BAG_DURATION_S:-90}"
+  # Sim-side RNG seed + per-vendor mission goals. These must be forwarded into
+  # the container (compose does not pass arbitrary host env through) so the
+  # in-sim drivers fly/drive the scenario's waypoints rather than their
+  # built-in default patrol.
+  UDM_BENCH_MISSION_SEED: "${UDM_BENCH_MISSION_SEED:-0}"
+  UDM_BENCH_TB3_WAYPOINTS: "${UDM_BENCH_TB3_WAYPOINTS:-[]}"
+  UDM_BENCH_PX4_WAYPOINTS: "${UDM_BENCH_PX4_WAYPOINTS:-[]}"
+  UDM_BENCH_PX4_TAKEOFF_ALT: "${UDM_BENCH_PX4_TAKEOFF_ALT:-5.0}"
+
+services:
+  turtlebot3:
+    profiles: ["turtlebot3", "multi-vendor"]
+    build:
+      context: ..
+      dockerfile: sim/Dockerfile.turtlebot3
+    image: udm-bench/turtlebot3:dev
+    container_name: udm-bench-tb3
+    environment:
+      <<: *common-env
+      TURTLEBOT3_MODEL: burger
+      # In multi-vendor profile, override world via compose-level env if needed.
+      UDM_BENCH_WORLD: "${UDM_BENCH_WORLD:-small_warehouse}"
+    volumes:
+      # Bag-recording output is written here so the orchestrator can pick it up.
+      # ``:Z`` triggers per-container SELinux relabel on RHEL/Rocky/Fedora.
+      - "${UDM_BENCH_RUNS_ROOT_HOST:-../runs}:/runs:Z"
+    networks:
+      - ros2net
+    # Resource hints — keep tractable on a laptop.
+    cpus: "2.0"
+    mem_limit: 4g
+
+  px4:
+    profiles: ["px4", "multi-vendor"]
+    build:
+      context: ..
+      dockerfile: sim/Dockerfile.px4
+    image: udm-bench/px4:dev
+    container_name: udm-bench-px4
+    environment:
+      <<: *common-env
+      UDM_BENCH_WORLD: "${UDM_BENCH_WORLD:-px4_default_world}"
+    volumes:
+      - "${UDM_BENCH_RUNS_ROOT_HOST:-../runs}:/runs:Z"
+    networks:
+      - ros2net
+    cpus: "2.0"
+    mem_limit: 4g
+
+networks:
+  ros2net:
+    driver: bridge

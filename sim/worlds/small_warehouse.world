@@ -1,0 +1,81 @@
+<?xml version="1.0" ?>
+<!--
+  udm-bench: small_warehouse
+  a 12×10 m warehouse-style world with parallel shelf rows,
+  used by the single_tb3_warehouse_nav and single_tb3_dynamic_obstacles
+  scenarios.
+-->
+<sdf version="1.7">
+  <world name="small_warehouse">
+    <physics type="ode">
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1.0</real_time_factor>
+      <real_time_update_rate>1000</real_time_update_rate>
+    </physics>
+
+    <include><uri>model://sun</uri></include>
+    <include><uri>model://ground_plane</uri></include>
+
+    <!-- Perimeter walls (12 m × 10 m) -->
+    <model name="wall_north">
+      <static>true</static>
+      <pose>0 5 0.5 0 0 0</pose>
+      <link name="link">
+        <collision name="c"><geometry><box><size>12 0.1 1.0</size></box></geometry></collision>
+        <visual name="v"><geometry><box><size>12 0.1 1.0</size></box></geometry></visual>
+      </link>
+    </model>
+    <model name="wall_south">
+      <static>true</static>
+      <pose>0 -5 0.5 0 0 0</pose>
+      <link name="link">
+        <collision name="c"><geometry><box><size>12 0.1 1.0</size></box></geometry></collision>
+        <visual name="v"><geometry><box><size>12 0.1 1.0</size></box></geometry></visual>
+      </link>
+    </model>
+    <model name="wall_east">
+      <static>true</static>
+      <pose>6 0 0.5 0 0 0</pose>
+      <link name="link">
+        <collision name="c"><geometry><box><size>0.1 10 1.0</size></box></geometry></collision>
+        <visual name="v"><geometry><box><size>0.1 10 1.0</size></box></geometry></visual>
+      </link>
+    </model>
+    <model name="wall_west">
+      <static>true</static>
+      <pose>-6 0 0.5 0 0 0</pose>
+      <link name="link">
+        <collision name="c"><geometry><box><size>0.1 10 1.0</size></box></geometry></collision>
+        <visual name="v"><geometry><box><size>0.1 10 1.0</size></box></geometry></visual>
+      </link>
+    </model>
+
+    <!-- Two parallel shelf rows -->
+    <model name="shelf_row_1">
+      <static>true</static>
+      <pose>0 1.5 0.5 0 0 0</pose>
+      <link name="link">
+        <collision name="c"><geometry><box><size>8 0.4 1.0</size></box></geometry></collision>
+        <visual name="v"><geometry><box><size>8 0.4 1.0</size></box></geometry></visual>
+      </link>
+    </model>
+    <model name="shelf_row_2">
+      <static>true</static>
+      <pose>0 -1.5 0.5 0 0 0</pose>
+      <link name="link">
+        <collision name="c"><geometry><box><size>8 0.4 1.0</size></box></geometry></collision>
+        <visual name="v"><geometry><box><size>8 0.4 1.0</size></box></geometry></visual>
+      </link>
+    </model>
+
+    <!-- Map-mismatch target box -->
+    <model name="obstacle_box_1">
+      <static>true</static>
+      <pose>4.5 0 0.25 0 0 0</pose>
+      <link name="link">
+        <collision name="c"><geometry><box><size>0.5 0.5 0.5</size></box></geometry></collision>
+        <visual name="v"><geometry><box><size>0.5 0.5 0.5</size></box></geometry></visual>
+      </link>
+    </model>
+  </world>
+</sdf>

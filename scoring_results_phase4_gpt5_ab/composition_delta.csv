@@ -1,0 +1,11 @@
+condition_code,model_id,metric,single_vendor_value,multi_vendor_value,delta,single_vendor_n,multi_vendor_n
+A,azure-gpt-5,root_cause_accuracy,0.1,0.230769,0.130769,10,13
+A,azure-gpt-5,time_of_onset_error_s,30.2883,43.881,13.5927,10,13
+A,azure-gpt-5,hallucination_total,0.0,0.538462,0.538462,10,13
+A,azure-gpt-5,tool_call_count,7.2,7.076923,-0.123077,10,13
+A,azure-gpt-5,usd_cost,0.374936,0.24286,-0.132076,10,13
+B,azure-gpt-5,root_cause_accuracy,0.1,0.076923,-0.023077,10,13
+B,azure-gpt-5,time_of_onset_error_s,21.00175,56.115875,35.114125,4,8
+B,azure-gpt-5,hallucination_total,0.0,0.461538,0.461538,10,13
+B,azure-gpt-5,tool_call_count,20.5,27.538462,7.038462,10,13
+B,azure-gpt-5,usd_cost,0.153599,0.168123,0.014524,10,13

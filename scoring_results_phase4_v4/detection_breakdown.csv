@@ -1,0 +1,9 @@
+condition_code,model_id,composition,found,missed,false_alarm,correct_abstain,n_faulty,n_clean,recall,recall_lo,recall_hi,specificity,specificity_lo,specificity_hi,balanced_acc,balanced_lo,balanced_hi
+C,azure-gpt-5-mini,multi-vendor,9,4,9,0,13,9,0.6923,0.4615,0.9231,0.0000,0.0000,0.0000,0.3462,0.2308,0.4615
+C,azure-gpt-5-mini,single-vendor,2,8,13,2,10,15,0.2000,0.0000,0.5000,0.1333,0.0000,0.3333,0.1667,0.0333,0.3333
+D,azure-gpt-5-mini,multi-vendor,10,3,8,1,13,9,0.7692,0.5385,1.0000,0.1111,0.0000,0.3333,0.4402,0.3034,0.6068
+D,azure-gpt-5-mini,single-vendor,1,9,15,0,10,15,0.1000,0.0000,0.3000,0.0000,0.0000,0.0000,0.0500,0.0000,0.1500
+E,azure-gpt-5-mini,multi-vendor,7,6,9,0,13,9,0.5385,0.2308,0.7692,0.0000,0.0000,0.0000,0.2692,0.1538,0.4231
+E,azure-gpt-5-mini,single-vendor,2,8,14,1,10,15,0.2000,0.0000,0.5000,0.0667,0.0000,0.2000,0.1333,0.0000,0.2833
+G,azure-gpt-5-mini,multi-vendor,4,9,5,4,13,9,0.3077,0.0769,0.5385,0.4444,0.1111,0.7778,0.3761,0.1876,0.5812
+G,azure-gpt-5-mini,single-vendor,0,10,10,5,10,15,0.0000,0.0000,0.0000,0.3333,0.1333,0.6000,0.1667,0.0667,0.3000

@@ -1,0 +1,533 @@
+{
+  "cells": [
+    {
+      "balanced_accuracy_ci": {
+        "hi": 0.115385,
+        "lo": 0.0,
+        "n": 22,
+        "point": 0.038462
+      },
+      "clean_mission_accuracy": 0.0,
+      "composition": "multi-vendor",
+      "condition_code": "A",
+      "cross_vendor_attribution_accuracy": 0.538462,
+      "detection_breakdown": {
+        "correct_abstain": 0,
+        "false_alarm": 9,
+        "found": 1,
+        "missed": 12,
+        "n_clean": 9,
+        "n_faulty": 13
+      },
+      "hallucination_total_mean": 0.318182,
+      "latency_s_mean": 67.352955,
+      "model_id": "azure-gpt-5-mini",
+      "n": 22,
+      "n_faulty": 13,
+      "overall_accuracy": 0.045455,
+      "prompt_tokens_mean": 323792.0,
+      "recall_ci": {
+        "hi": 0.230769,
+        "lo": 0.0,
+        "n": 13,
+        "point": 0.076923
+      },
+      "root_cause_accuracy": 0.076923,
+      "specificity_ci": {
+        "hi": 0.0,
+        "lo": 0.0,
+        "n": 9,
+        "point": 0.0
+      },
+      "time_of_onset_error_s_mean": 58.788538,
+      "tool_call_count_mean": 6.5,
+      "usd_cost_mean": 0.086084,
+      "usd_cost_total": 1.89384
+    },
+    {
+      "balanced_accuracy_ci": {
+        "hi": 0.283333,
+        "lo": 0.0,
+        "n": 25,
+        "point": 0.133333
+      },
+      "clean_mission_accuracy": 0.066667,
+      "composition": "single-vendor",
+      "condition_code": "A",
+      "cross_vendor_attribution_accuracy": null,
+      "detection_breakdown": {
+        "correct_abstain": 1,
+        "false_alarm": 14,
+        "found": 2,
+        "missed": 8,
+        "n_clean": 15,
+        "n_faulty": 10
+      },
+      "hallucination_total_mean": 0.0,
+      "latency_s_mean": 39.05844,
+      "model_id": "azure-gpt-5-mini",
+      "n": 25,
+      "n_faulty": 10,
+      "overall_accuracy": 0.12,
+      "prompt_tokens_mean": 313632.64,
+      "recall_ci": {
+        "hi": 0.5,
+        "lo": 0.0,
+        "n": 10,
+        "point": 0.2
+      },
+      "root_cause_accuracy": 0.2,
+      "specificity_ci": {
+        "hi": 0.2,
+        "lo": 0.0,
+        "n": 15,
+        "point": 0.066667
+      },
+      "time_of_onset_error_s_mean": 16.2345,
+      "tool_call_count_mean": 6.16,
+      "usd_cost_mean": 0.084142,
+      "usd_cost_total": 2.103562
+    },
+    {
+      "balanced_accuracy_ci": {
+        "hi": 0.5,
+        "lo": 0.333333,
+        "n": 22,
+        "point": 0.444444
+      },
+      "clean_mission_accuracy": 0.888889,
+      "composition": "multi-vendor",
+      "condition_code": "B",
+      "cross_vendor_attribution_accuracy": 0.0,
+      "detection_breakdown": {
+        "correct_abstain": 8,
+        "false_alarm": 1,
+        "found": 0,
+        "missed": 13,
+        "n_clean": 9,
+        "n_faulty": 13
+      },
+      "hallucination_total_mean": 0.090909,
+      "latency_s_mean": 36.463409,
+      "model_id": "azure-gpt-5-mini",
+      "n": 22,
+      "n_faulty": 13,
+      "overall_accuracy": 0.363636,
+      "prompt_tokens_mean": 143165.954545,
+      "recall_ci": {
+        "hi": 0.0,
+        "lo": 0.0,
+        "n": 13,
+        "point": 0.0
+      },
+      "root_cause_accuracy": 0.0,
+      "specificity_ci": {
+        "hi": 1.0,
+        "lo": 0.666667,
+        "n": 9,
+        "point": 0.888889
+      },
+      "time_of_onset_error_s_mean": 62.4775,
+      "tool_call_count_mean": 19.727273,
+      "usd_cost_mean": 0.040214,
+      "usd_cost_total": 0.884703
+    },
+    {
+      "balanced_accuracy_ci": {
+        "hi": 0.5,
+        "lo": 0.3,
+        "n": 25,
+        "point": 0.4
+      },
+      "clean_mission_accuracy": 0.8,
+      "composition": "single-vendor",
+      "condition_code": "B",
+      "cross_vendor_attribution_accuracy": null,
+      "detection_breakdown": {
+        "correct_abstain": 12,
+        "false_alarm": 3,
+        "found": 0,
+        "missed": 10,
+        "n_clean": 15,
+        "n_faulty": 10
+      },
+      "hallucination_total_mean": 0.0,
+      "latency_s_mean": 59.24608,
+      "model_id": "azure-gpt-5-mini",
+      "n": 25,
+      "n_faulty": 10,
+      "overall_accuracy": 0.48,
+      "prompt_tokens_mean": 247715.2,
+      "recall_ci": {
+        "hi": 0.0,
+        "lo": 0.0,
+        "n": 10,
+        "point": 0.0
+      },
+      "root_cause_accuracy": 0.0,
+      "specificity_ci": {
+        "hi": 1.0,
+        "lo": 0.6,
+        "n": 15,
+        "point": 0.8
+      },
+      "time_of_onset_error_s_mean": 26.156,
+      "tool_call_count_mean": 19.2,
+      "usd_cost_mean": 0.070934,
+      "usd_cost_total": 1.77335
+    },
+    {
+      "balanced_accuracy_ci": {
+        "hi": 0.166667,
+        "lo": 0.0,
+        "n": 22,
+        "point": 0.055556
+      },
+      "clean_mission_accuracy": 0.111111,
+      "composition": "multi-vendor",
+      "condition_code": "C",
+      "cross_vendor_attribution_accuracy": 0.230769,
+      "detection_breakdown": {
+        "correct_abstain": 1,
+        "false_alarm": 8,
+        "found": 0,
+        "missed": 13,
+        "n_clean": 9,
+        "n_faulty": 13
+      },
+      "hallucination_total_mean": 0.5,
+      "latency_s_mean": 43.123455,
+      "model_id": "azure-gpt-5-mini",
+      "n": 22,
+      "n_faulty": 13,
+      "overall_accuracy": 0.045455,
+      "prompt_tokens_mean": 105857.272727,
+      "recall_ci": {
+        "hi": 0.0,
+        "lo": 0.0,
+        "n": 13,
+        "point": 0.0
+      },
+      "root_cause_accuracy": 0.0,
+      "specificity_ci": {
+        "hi": 0.333333,
+        "lo": 0.0,
+        "n": 9,
+        "point": 0.111111
+      },
+      "time_of_onset_error_s_mean": 67.46962,
+      "tool_call_count_mean": 8.272727,
+      "usd_cost_mean": 0.031897,
+      "usd_cost_total": 0.701743
+    },
+    {
+      "balanced_accuracy_ci": {
+        "hi": 0.25,
+        "lo": 0.0,
+        "n": 25,
+        "point": 0.116667
+      },
+      "clean_mission_accuracy": 0.133333,
+      "composition": "single-vendor",
+      "condition_code": "C",
+      "cross_vendor_attribution_accuracy": null,
+      "detection_breakdown": {
+        "correct_abstain": 2,
+        "false_alarm": 13,
+        "found": 1,
+        "missed": 9,
+        "n_clean": 15,
+        "n_faulty": 10
+      },
+      "hallucination_total_mean": 0.0,
+      "latency_s_mean": 39.03472,
+      "model_id": "azure-gpt-5-mini",
+      "n": 25,
+      "n_faulty": 10,
+      "overall_accuracy": 0.12,
+      "prompt_tokens_mean": 90016.48,
+      "recall_ci": {
+        "hi": 0.3,
+        "lo": 0.0,
+        "n": 10,
+        "point": 0.1
+      },
+      "root_cause_accuracy": 0.1,
+      "specificity_ci": {
+        "hi": 0.333333,
+        "lo": 0.0,
+        "n": 15,
+        "point": 0.133333
+      },
+      "time_of_onset_error_s_mean": 26.6585,
+      "tool_call_count_mean": 8.2,
+      "usd_cost_mean": 0.028537,
+      "usd_cost_total": 0.713431
+    },
+    {
+      "balanced_accuracy_ci": {
+        "hi": 0.277778,
+        "lo": 0.0,
+        "n": 22,
+        "point": 0.111111
+      },
+      "clean_mission_accuracy": 0.222222,
+      "composition": "multi-vendor",
+      "condition_code": "D",
+      "cross_vendor_attribution_accuracy": 0.384615,
+      "detection_breakdown": {
+        "correct_abstain": 2,
+        "false_alarm": 7,
+        "found": 0,
+        "missed": 13,
+        "n_clean": 9,
+        "n_faulty": 13
+      },
+      "hallucination_total_mean": 0.5,
+      "latency_s_mean": 46.228727,
+      "model_id": "azure-gpt-5-mini",
+      "n": 22,
+      "n_faulty": 13,
+      "overall_accuracy": 0.090909,
+      "prompt_tokens_mean": 139572.454545,
+      "recall_ci": {
+        "hi": 0.0,
+        "lo": 0.0,
+        "n": 13,
+        "point": 0.0
+      },
+      "root_cause_accuracy": 0.0,
+      "specificity_ci": {
+        "hi": 0.555556,
+        "lo": 0.0,
+        "n": 9,
+        "point": 0.222222
+      },
+      "time_of_onset_error_s_mean": 65.266846,
+      "tool_call_count_mean": 8.863636,
+      "usd_cost_mean": 0.041455,
+      "usd_cost_total": 0.912021
+    },
+    {
+      "balanced_accuracy_ci": {
+        "hi": 0.2,
+        "lo": 0.0,
+        "n": 25,
+        "point": 0.1
+      },
+      "clean_mission_accuracy": 0.2,
+      "composition": "single-vendor",
+      "condition_code": "D",
+      "cross_vendor_attribution_accuracy": null,
+      "detection_breakdown": {
+        "correct_abstain": 3,
+        "false_alarm": 12,
+        "found": 0,
+        "missed": 10,
+        "n_clean": 15,
+        "n_faulty": 10
+      },
+      "hallucination_total_mean": 0.08,
+      "latency_s_mean": 38.22796,
+      "model_id": "azure-gpt-5-mini",
+      "n": 25,
+      "n_faulty": 10,
+      "overall_accuracy": 0.12,
+      "prompt_tokens_mean": 97138.24,
+      "recall_ci": {
+        "hi": 0.0,
+        "lo": 0.0,
+        "n": 10,
+        "point": 0.0
+      },
+      "root_cause_accuracy": 0.0,
+      "specificity_ci": {
+        "hi": 0.4,
+        "lo": 0.0,
+        "n": 15,
+        "point": 0.2
+      },
+      "time_of_onset_error_s_mean": 26.6125,
+      "tool_call_count_mean": 7.96,
+      "usd_cost_mean": 0.030124,
+      "usd_cost_total": 0.75309
+    },
+    {
+      "balanced_accuracy_ci": {
+        "hi": 0.388889,
+        "lo": 0.055556,
+        "n": 22,
+        "point": 0.205128
+      },
+      "clean_mission_accuracy": 0.333333,
+      "composition": "multi-vendor",
+      "condition_code": "E",
+      "cross_vendor_attribution_accuracy": 0.461538,
+      "detection_breakdown": {
+        "correct_abstain": 3,
+        "false_alarm": 6,
+        "found": 1,
+        "missed": 12,
+        "n_clean": 9,
+        "n_faulty": 13
+      },
+      "hallucination_total_mean": 0.409091,
+      "latency_s_mean": 48.749409,
+      "model_id": "azure-gpt-5-mini",
+      "n": 22,
+      "n_faulty": 13,
+      "overall_accuracy": 0.181818,
+      "prompt_tokens_mean": 183717.090909,
+      "recall_ci": {
+        "hi": 0.230769,
+        "lo": 0.0,
+        "n": 13,
+        "point": 0.076923
+      },
+      "root_cause_accuracy": 0.076923,
+      "specificity_ci": {
+        "hi": 0.666667,
+        "lo": 0.0,
+        "n": 9,
+        "point": 0.333333
+      },
+      "time_of_onset_error_s_mean": 67.159154,
+      "tool_call_count_mean": 10.0,
+      "usd_cost_mean": 0.052188,
+      "usd_cost_total": 1.148136
+    },
+    {
+      "balanced_accuracy_ci": {
+        "hi": 0.25,
+        "lo": 0.0,
+        "n": 25,
+        "point": 0.116667
+      },
+      "clean_mission_accuracy": 0.133333,
+      "composition": "single-vendor",
+      "condition_code": "E",
+      "cross_vendor_attribution_accuracy": null,
+      "detection_breakdown": {
+        "correct_abstain": 2,
+        "false_alarm": 13,
+        "found": 1,
+        "missed": 9,
+        "n_clean": 15,
+        "n_faulty": 10
+      },
+      "hallucination_total_mean": 0.0,
+      "latency_s_mean": 44.69056,
+      "model_id": "azure-gpt-5-mini",
+      "n": 25,
+      "n_faulty": 10,
+      "overall_accuracy": 0.12,
+      "prompt_tokens_mean": 189862.44,
+      "recall_ci": {
+        "hi": 0.3,
+        "lo": 0.0,
+        "n": 10,
+        "point": 0.1
+      },
+      "root_cause_accuracy": 0.1,
+      "specificity_ci": {
+        "hi": 0.333333,
+        "lo": 0.0,
+        "n": 15,
+        "point": 0.133333
+      },
+      "time_of_onset_error_s_mean": 25.0705,
+      "tool_call_count_mean": 9.88,
+      "usd_cost_mean": 0.054552,
+      "usd_cost_total": 1.363804
+    },
+    {
+      "balanced_accuracy_ci": {
+        "hi": 0.5,
+        "lo": 0.333333,
+        "n": 22,
+        "point": 0.444444
+      },
+      "clean_mission_accuracy": 0.888889,
+      "composition": "multi-vendor",
+      "condition_code": "F",
+      "cross_vendor_attribution_accuracy": 0.307692,
+      "detection_breakdown": {
+        "correct_abstain": 8,
+        "false_alarm": 1,
+        "found": 0,
+        "missed": 13,
+        "n_clean": 9,
+        "n_faulty": 13
+      },
+      "hallucination_total_mean": 0.590909,
+      "latency_s_mean": 61.079136,
+      "model_id": "azure-gpt-5-mini",
+      "n": 22,
+      "n_faulty": 13,
+      "overall_accuracy": 0.363636,
+      "prompt_tokens_mean": 27020.590909,
+      "recall_ci": {
+        "hi": 0.0,
+        "lo": 0.0,
+        "n": 13,
+        "point": 0.0
+      },
+      "root_cause_accuracy": 0.0,
+      "specificity_ci": {
+        "hi": 1.0,
+        "lo": 0.666667,
+        "n": 9,
+        "point": 0.888889
+      },
+      "time_of_onset_error_s_mean": 67.1126,
+      "tool_call_count_mean": 16.590909,
+      "usd_cost_mean": 0.017538,
+      "usd_cost_total": 0.385841
+    },
+    {
+      "balanced_accuracy_ci": {
+        "hi": 0.466667,
+        "lo": 0.233333,
+        "n": 25,
+        "point": 0.366667
+      },
+      "clean_mission_accuracy": 0.733333,
+      "composition": "single-vendor",
+      "condition_code": "F",
+      "cross_vendor_attribution_accuracy": null,
+      "detection_breakdown": {
+        "correct_abstain": 11,
+        "false_alarm": 4,
+        "found": 0,
+        "missed": 10,
+        "n_clean": 15,
+        "n_faulty": 10
+      },
+      "hallucination_total_mean": 1.32,
+      "latency_s_mean": 50.7202,
+      "model_id": "azure-gpt-5-mini",
+      "n": 25,
+      "n_faulty": 10,
+      "overall_accuracy": 0.44,
+      "prompt_tokens_mean": 27166.48,
+      "recall_ci": {
+        "hi": 0.0,
+        "lo": 0.0,
+        "n": 10,
+        "point": 0.0
+      },
+      "root_cause_accuracy": 0.0,
+      "specificity_ci": {
+        "hi": 0.933333,
+        "lo": 0.466667,
+        "n": 15,
+        "point": 0.733333
+      },
+      "time_of_onset_error_s_mean": 27.718875,
+      "tool_call_count_mean": 17.0,
+      "usd_cost_mean": 0.014863,
+      "usd_cost_total": 0.371569
+    }
+  ],
+  "n_runs_total": 282
+}

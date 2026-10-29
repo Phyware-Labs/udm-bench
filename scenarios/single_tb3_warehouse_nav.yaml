@@ -1,0 +1,35 @@
+id: single_tb3_warehouse_nav
+composition: single-vendor
+vendors: [tb3]
+world: small_warehouse
+description: >
+  Single TurtleBot3 performing point-to-point navigation across 5 waypoints
+  in the AWS RoboMaker small_warehouse world. Baseline single-vendor scenario
+  for the benchmark.
+mission_template:
+  duration_s: 90
+  waypoints:
+    - { x: 1.0,  y:  0.0 }
+    - { x: 3.5,  y:  1.5 }
+    - { x: 5.0,  y: -1.0 }
+    - { x: 2.0,  y: -2.5 }
+    - { x: 0.0,  y:  0.0 }
+  recorder:
+    bag_topics:
+      - /scan
+      - /odom
+      - /imu
+      - /cmd_vel
+      - /amcl_pose
+      - /battery_state
+fault_mix:
+  fault_probability: 0.5
+  eligible_fault_ids:
+    - tb3_lidar_dropout
+    - tb3_lidar_noise
+    - tb3_motor_stall
+    - tb3_odometry_drift
+    - tb3_imu_bias
+    - tb3_amcl_failure
+    - tb3_map_mismatch
+    - tb3_costmap_inflation_drift

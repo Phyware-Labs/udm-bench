@@ -1,0 +1,11 @@
+fault,signal checked,detectable
+px4_gps_dropout,longest gap between global-position samples,5/5
+px4_imu_saturation,attitude quaternions with NaN/inf,4/4
+tb3_costmap_inflation_drift,peak local-costmap occupancy,1/1
+tb3_imu_bias,peak |IMU yaw rate - odometry yaw rate|,2/2
+tb3_lidar_dropout,longest gap between LaserScan samples,1/1
+tb3_lidar_noise,peak ray-to-ray roughness of LaserScan ranges,3/3
+tb3_map_mismatch,peak AMCL x/y position variance,0/1
+tb3_motor_stall,peak |commanded - measured velocity|,0/3
+tb3_odometry_drift,growth of odometry vs AMCL position gap,0/3
+**all**,,**16/23**

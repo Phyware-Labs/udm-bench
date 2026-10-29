@@ -1,0 +1,30 @@
+id: single_px4_waypoints
+composition: single-vendor
+vendors: [px4]
+world: px4_default_world
+description: >
+  Single PX4 SITL drone, multi-waypoint mission in the PX4 default world.
+  Baseline single-vendor scenario for the aerial platform.
+mission_template:
+  duration_s: 180
+  takeoff_alt_m: 5.0
+  waypoints:
+    - { lat_offset_m: 10.0, lon_offset_m:  0.0,  alt_m: 5.0 }
+    - { lat_offset_m: 10.0, lon_offset_m: 10.0,  alt_m: 8.0 }
+    - { lat_offset_m:  0.0, lon_offset_m: 10.0,  alt_m: 5.0 }
+    - { lat_offset_m:  0.0, lon_offset_m:  0.0,  alt_m: 0.0 }  # land
+  recorder:
+    bag_topics:
+      - /fmu/out/vehicle_global_position
+      - /fmu/out/vehicle_attitude
+      - /fmu/out/battery_status
+      - /fmu/out/actuator_outputs
+      - /fmu/in/manual_control_input
+fault_mix:
+  fault_probability: 0.5
+  eligible_fault_ids:
+    - px4_gps_dropout
+    - px4_imu_saturation
+    - px4_motor_failure
+    - px4_battery_sag
+    - px4_rc_link_loss

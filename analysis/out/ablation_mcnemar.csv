@@ -1,0 +1,10 @@
+model,pair,metric,first,second,b,c,p,p (Holm),h
+gpt-5-mini,C vs D,faults found,11/23,11/23,2,2,1.000,1.000,+0.00
+gpt-5-mini,C vs E,faults found,11/23,9/23,4,2,0.688,1.000,+0.18
+gpt-5-mini,C vs G,faults found,11/23,4/23,7,0,0.016,0.047,+0.67
+gpt-5-mini,C vs D,correct abstain,2/24,1/24,2,1,1.000,1.000,+0.17
+gpt-5-mini,C vs E,correct abstain,2/24,1/24,1,0,1.000,1.000,+0.17
+gpt-5-mini,C vs G,correct abstain,2/24,9/24,0,7,0.016,0.047,-0.73
+gpt-5-mini,C vs D,vendor attribution,11/13,11/13,1,1,1.000,1.000,+0.00
+gpt-5-mini,C vs E,vendor attribution,11/13,8/13,3,0,0.250,0.500,+0.53
+gpt-5-mini,C vs G,vendor attribution,11/13,6/13,5,0,0.062,0.188,+0.84

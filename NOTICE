@@ -1,0 +1,28 @@
+UDM-Bench
+Copyright 2026 Chris Herczeg
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may
+not use this file except in compliance with the License. You may obtain
+a copy of the License at
+
+    https://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+
+---
+
+Third-party material included in this repository:
+
+* baselines/px4_msgs_defs/msg/*.msg — message definitions from PX4 px4_msgs
+  (https://github.com/PX4/px4_msgs), commit ffb6e80e1c17e5714395611a020c282a87af8fa4.
+  Copyright (c) 2019, PX4 Development Team. BSD 3-Clause License; see
+  baselines/px4_msgs_defs/LICENSE.
+
+Third-party software fetched when building the simulation images (sim/), not
+redistributed here: ROS 2 Humble, Gazebo Classic, TurtleBot3 and Nav2
+(Apache-2.0), PX4-Autopilot and px4_msgs (BSD-3-Clause), and
+Micro-XRCE-DDS-Agent (Apache-2.0).

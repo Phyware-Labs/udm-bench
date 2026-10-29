@@ -1,0 +1,5 @@
+condition_code,model_id,composition,found,missed,false_alarm,correct_abstain,n_faulty,n_clean,recall,recall_lo,recall_hi,specificity,specificity_lo,specificity_hi,balanced_acc,balanced_lo,balanced_hi
+A,azure-gpt-5,multi-vendor,3,10,6,3,13,9,0.2308,0.0000,0.4615,0.3333,0.0000,0.6667,0.2821,0.0940,0.4872
+A,azure-gpt-5,single-vendor,1,9,12,3,10,15,0.1000,0.0000,0.3000,0.2000,0.0000,0.4000,0.1500,0.0333,0.3000
+B,azure-gpt-5,multi-vendor,1,12,1,8,13,9,0.0769,0.0000,0.2308,0.8889,0.6667,1.0000,0.4829,0.3333,0.6154
+B,azure-gpt-5,single-vendor,1,9,2,13,10,15,0.1000,0.0000,0.3000,0.8667,0.6667,1.0000,0.4833,0.3667,0.6167

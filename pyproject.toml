@@ -1,0 +1,101 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "udm-bench"
+version = "0.1.0"
+description = "Benchmark of a vendor-neutral unified data model for LLM robot fault diagnosis (ROS 2 / PX4)."
+readme = "README.md"
+license = { text = "Apache-2.0" }
+authors = [{ name = "Chris Herczeg" }]
+requires-python = ">=3.10"
+dependencies = [
+    "pyyaml>=6.0",
+    "tenacity>=8.2",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "pytest-cov>=5.0",
+    "ruff>=0.5",
+]
+bag = ["rosbags>=0.9"]
+
+[project.scripts]
+udm-bench-run-harness = "harness.run:main"
+udm-bench-prepare = "baselines.prepare:main"
+udm-bench-score = "scoring.score:main"
+udm-bench-log-spend = "scoring.spend:main"
+
+[tool.setuptools]
+# Scenario manifests and sim/ are non-Python and intentionally not packages.
+packages = [
+    "faults",
+    "orchestrator",
+    "harness",
+    "harness.backends",
+    "harness.conditions",
+    "harness.prompts",
+    "scoring",
+    "leaderboard",
+    "baselines",
+    "analysis",
+]
+
+[tool.setuptools.package-data]
+"harness.prompts" = ["v*/*.txt"]
+"faults" = ["taxonomy.yaml"]
+
+[tool.pytest.ini_options]
+minversion = "8.0"
+addopts = [
+    "-ra",
+    "--strict-markers",
+    "--cov=faults",
+    "--cov=orchestrator",
+    "--cov=harness",
+    "--cov=scoring",
+    "--cov=leaderboard",
+    "--cov=baselines",
+    "--cov=analysis",
+    "--cov-report=term-missing",
+    "--cov-fail-under=80",
+]
+testpaths = ["tests"]
+markers = [
+    "smoke: end-to-end pipeline smoke tests (plan-only, no Docker)",
+]
+
+[tool.coverage.run]
+branch = true
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "raise NotImplementedError",
+    "if __name__ == .__main__.:",
+    "if TYPE_CHECKING:",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = [
+    "E",   # pycodestyle errors
+    "F",   # pyflakes
+    "W",   # pycodestyle warnings
+    "I",   # isort
+    "B",   # bugbear
+    "UP",  # pyupgrade
+    "SIM", # simplify
+]
+ignore = [
+    "E501", # line length is enforced by formatter
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["B011"]

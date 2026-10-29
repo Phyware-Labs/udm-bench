@@ -1,0 +1,33 @@
+model,condition,composition,evidence,missed,no diagnosis,said no_fault,wrong vendor,"right vendor, wrong fault"
+gpt-5,A raw bag,single-vendor,yes,3,0,1,0,2
+gpt-5,A raw bag,single-vendor,no,6,0,3,0,3
+gpt-5,A raw bag,multi-vendor,yes,9,0,0,6,3
+gpt-5,A raw bag,multi-vendor,no,1,0,0,0,1
+gpt-5,B SQL,single-vendor,yes,3,2,1,0,0
+gpt-5,B SQL,single-vendor,no,6,4,0,0,2
+gpt-5,B SQL,multi-vendor,yes,11,5,1,4,1
+gpt-5,B SQL,multi-vendor,no,1,0,1,0,0
+gpt-5,G UDM-health_scan,single-vendor,yes,3,0,2,0,1
+gpt-5,G UDM-health_scan,single-vendor,no,6,0,6,0,0
+gpt-5,G UDM-health_scan,multi-vendor,yes,8,1,3,0,4
+gpt-5,G UDM-health_scan,multi-vendor,no,1,0,0,1,0
+gpt-5,C UDM+health_scan,single-vendor,yes,2,0,2,0,0
+gpt-5,C UDM+health_scan,single-vendor,no,6,0,4,0,2
+gpt-5,C UDM+health_scan,multi-vendor,yes,4,1,0,1,2
+gpt-5,C UDM+health_scan,multi-vendor,no,1,0,0,1,0
+gpt-5-mini,A raw bag,single-vendor,yes,2,0,0,0,2
+gpt-5-mini,A raw bag,single-vendor,no,6,0,0,0,6
+gpt-5-mini,A raw bag,multi-vendor,yes,11,0,1,6,4
+gpt-5-mini,A raw bag,multi-vendor,no,1,0,0,0,1
+gpt-5-mini,B SQL,single-vendor,yes,4,1,0,0,3
+gpt-5-mini,B SQL,single-vendor,no,6,4,0,0,2
+gpt-5-mini,B SQL,multi-vendor,yes,12,10,0,2,0
+gpt-5-mini,B SQL,multi-vendor,no,1,1,0,0,0
+gpt-5-mini,G UDM-health_scan,single-vendor,yes,4,1,0,0,3
+gpt-5-mini,G UDM-health_scan,single-vendor,no,6,0,3,0,3
+gpt-5-mini,G UDM-health_scan,multi-vendor,yes,8,2,0,4,2
+gpt-5-mini,G UDM-health_scan,multi-vendor,no,1,0,1,0,0
+gpt-5-mini,C UDM+health_scan,single-vendor,yes,2,0,1,0,1
+gpt-5-mini,C UDM+health_scan,single-vendor,no,6,0,2,0,4
+gpt-5-mini,C UDM+health_scan,multi-vendor,yes,3,0,0,1,2
+gpt-5-mini,C UDM+health_scan,multi-vendor,no,1,0,0,1,0

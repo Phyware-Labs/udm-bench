@@ -1,0 +1,31 @@
+id: single_tb3_dynamic_obstacles
+composition: single-vendor
+vendors: [tb3]
+world: small_warehouse
+description: >
+  Single TurtleBot3 with moving obstacles (pedestrian-like models traversing
+  the planned path). Stresses the local planner; map-mismatch and lidar
+  faults become harder to disambiguate from genuine obstacle motion.
+mission_template:
+  duration_s: 120
+  waypoints:
+    - { x: 4.0, y: 0.0 }
+    - { x: 4.0, y: 3.0 }
+    - { x: 0.0, y: 3.0 }
+  dynamic_obstacles:
+    - { model: pedestrian_1, path: linear, speed_mps: 0.5 }
+    - { model: pedestrian_2, path: circular, speed_mps: 0.3 }
+  recorder:
+    bag_topics:
+      - /scan
+      - /odom
+      - /imu
+      - /cmd_vel
+      - /local_costmap/costmap
+fault_mix:
+  fault_probability: 0.5
+  eligible_fault_ids:
+    - tb3_lidar_dropout
+    - tb3_lidar_noise
+    - tb3_map_mismatch
+    - tb3_costmap_inflation_drift

@@ -1,0 +1,61 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+.Python
+build/
+dist/
+*.egg-info/
+*.egg
+.eggs/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Testing / coverage
+.pytest_cache/
+.coverage
+.coverage.*
+coverage.xml
+htmlcov/
+.tox/
+.nox/
+.hypothesis/
+
+# Tooling caches
+.ruff_cache/
+.mypy_cache/
+.pyre/
+.pytype/
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS noise
+.DS_Store
+Thumbs.db
+
+# Benchmark artifacts (regeneratable from sim + harness)
+runs/
+results/
+leaderboard/_site/
+
+# ROS2 / Gazebo build outputs (when present from local dev)
+install/
+log/
+build_ros/
+
+# Secrets — never check in
+.env
+.env.*
+!.env.example
+secrets.yaml
+*.pem
+*.key

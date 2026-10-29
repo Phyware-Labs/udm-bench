@@ -1,0 +1,117 @@
+# syntax=docker/dockerfile:1.7
+# PX4 SITL + Gazebo + px4_ros_com bridge (px4_msgs), CPU-only.
+# udm-bench simulation image.
+FROM osrf/ros:humble-desktop-full
+
+ARG PX4_REF=v1.14.3
+ENV DEBIAN_FRONTEND=noninteractive
+ENV ROS_DOMAIN_ID=0
+ENV PX4_HOME=/opt/PX4-Autopilot
+
+# hadolint ignore=DL3008
+RUN apt-get update && apt-get install -y --no-install-recommends \
+        build-essential \
+        ca-certificates \
+        cmake \
+        git \
+        ninja-build \
+        python3-jinja2 \
+        python3-pip \
+        python3-toml \
+        ros-humble-rmw-cyclonedds-cpp \
+        ros-humble-rosbag2 \
+        ros-humble-rosbag2-storage-default-plugins \
+        wget \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN pip3 install --no-cache-dir 'pyyaml>=6.0' 'click>=8.1' 'kconfiglib' 'pyros-genmsg' 'jsonschema>=4.20'
+
+ENV RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
+
+# Clone PX4-Autopilot at a pinned reference (shallow, with submodules).
+RUN git clone --depth 1 --branch "${PX4_REF}" --recurse-submodules \
+        https://github.com/PX4/PX4-Autopilot.git "${PX4_HOME}"
+
+# Install PX4 build + simulation dependencies (Gazebo Classic, Python build
+# deps) via PX4's own setup script. Kept in its own layer so it stays cached
+# across SITL-build iterations.
+# hadolint ignore=DL3008
+RUN cd "${PX4_HOME}" \
+    && bash Tools/setup/ubuntu.sh --no-nuttx \
+    && rm -rf /var/lib/apt/lists/*
+
+# Pre-build the PX4 SITL firmware so the container boots without a full compile.
+# NOTE: ``make px4_sitl <sim_target>`` (e.g. gz_x500) LAUNCHES the simulator and
+# never returns, so it must NOT be used at build time — only ``make px4_sitl``
+# (no sim target) builds the firmware. The gz sim itself is started at runtime
+# by the launch graph. (The list step is kept to match the cached build layer.)
+RUN cd "${PX4_HOME}" \
+    && DONT_RUN=1 make px4_sitl \
+    && echo "=== AVAILABLE SITL TARGETS ===" \
+    && (make px4_sitl list_config_targets 2>&1 | head -60 || true)
+
+# Pre-build the jMAVSim jar so the first SITL boot does not pay the ``ant``
+# build cost at runtime. The udm-bench sim uses the jMAVSim target (not gz):
+# gz's ``gz_bridge`` cannot reach a headless gz server in this image, whereas
+# jMAVSim boots reliably headless and still surfaces the full ``/fmu``
+# telemetry the scoring harness depends on. ``jmavsim_run.sh``
+# would otherwise build this jar lazily on the first launch.
+RUN cd "${PX4_HOME}/Tools/simulation/jmavsim/jMAVSim" \
+    && ant create_run_jar copy_res
+
+# Install Micro-XRCE-DDS-Agent (the bridge that surfaces px4_msgs on the ROS2
+# side). The v2.4.2 superbuild pins Fast-DDS branch ``2.12.x`` which eProsima has
+# removed; repoint it to a branch that still exists before building.
+ARG XRCE_AGENT_REF=v2.4.2
+RUN git clone --depth 1 --branch "${XRCE_AGENT_REF}" \
+        https://github.com/eProsima/Micro-XRCE-DDS-Agent.git /tmp/xrce-agent \
+    && grep -rlF '2.12.x' /tmp/xrce-agent | xargs -r sed -i 's/2\.12\.x/2.14.x/g' \
+    && cd /tmp/xrce-agent \
+    && mkdir build && cd build \
+    && cmake -G Ninja .. \
+    && ninja \
+    && ninja install \
+    && ldconfig \
+    && rm -rf /tmp/xrce-agent
+
+# px4_msgs workspace, colcon-built so px4_msgs types are available to the ROS2
+# side (the agent surfaces /fmu/* topics in these types; the bag recorder and
+# the offboard flight node both resolve the types from here).
+# px4_msgs is pinned to the ``release/1.14`` commit that matches the PX4 v1.14.3
+# firmware wire format AND whose .msg defs are vendored under
+# ``baselines/px4_msgs_defs/`` so the host-side bag converters decode the exact
+# CDR layout the sim records. px4_msgs HEAD does NOT match v1.14.3 (added fields)
+# and mis-decodes vehicle_local_position/status/global_position. Keep the
+# firmware ref, this pin, and the vendored defs in lockstep when bumping.
+# (px4_ros_com is intentionally omitted — the XRCE agent + firmware client
+# surface the /fmu topics; the example nodes it ships are unused here, and its
+# ``main`` does not build against px4_msgs release/1.14.)
+ARG PX4_MSGS_REF=ffb6e80e1c17e5714395611a020c282a87af8fa4
+RUN mkdir -p /opt/px4_ros_ws/src \
+    && git clone --branch release/1.14 https://github.com/PX4/px4_msgs.git /opt/px4_ros_ws/src/px4_msgs \
+    && git -C /opt/px4_ros_ws/src/px4_msgs checkout "${PX4_MSGS_REF}" \
+    && . /opt/ros/humble/setup.sh \
+    && cd /opt/px4_ros_ws \
+    && colcon build --packages-select px4_msgs
+
+COPY sim/worlds/ /opt/udm-bench/worlds/
+COPY sim/launch/ /opt/udm-bench/sim/launch/
+RUN touch /opt/udm-bench/sim/__init__.py /opt/udm-bench/sim/launch/__init__.py
+ENV PYTHONPATH=/opt/udm-bench:${PYTHONPATH}
+
+RUN { \
+        echo "source /opt/ros/humble/setup.bash"; \
+        echo "if [ -f /opt/px4_ros_ws/install/setup.bash ]; then source /opt/px4_ros_ws/install/setup.bash; fi"; \
+        echo "export ROS_DOMAIN_ID=${ROS_DOMAIN_ID}"; \
+        echo "export RMW_IMPLEMENTATION=${RMW_IMPLEMENTATION}"; \
+        echo "export PX4_HOME=${PX4_HOME}"; \
+    } >> /root/.bashrc
+
+HEALTHCHECK --interval=30s --timeout=10s --start-period=60s --retries=3 \
+    CMD bash -c "source /opt/ros/humble/setup.bash && ros2 daemon status" || exit 1
+
+ENTRYPOINT ["/ros_entrypoint.sh"]
+# Source the px4_ros_ws overlay *explicitly* (not via .bashrc, which returns
+# early for non-interactive shells) so the whole launch tree — bag recorder +
+# offboard flight node — can resolve the px4_msgs types for the /fmu topics.
+CMD ["bash", "-lc", "source /opt/ros/humble/setup.bash && source /opt/px4_ros_ws/install/setup.bash && ros2 launch /opt/udm-bench/sim/launch/px4.launch.py"]

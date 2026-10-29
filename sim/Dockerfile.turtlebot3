@@ -1,0 +1,85 @@
+# syntax=docker/dockerfile:1.7
+# TurtleBot3 + Nav2 + Gazebo simulation environment (ROS2 Humble, CPU-only).
+# udm-bench simulation image.
+FROM osrf/ros:humble-desktop-full
+
+ARG TURTLEBOT3_MODEL=burger
+ENV TURTLEBOT3_MODEL=${TURTLEBOT3_MODEL}
+ENV DEBIAN_FRONTEND=noninteractive
+ENV ROS_DOMAIN_ID=0
+
+# hadolint ignore=DL3008
+RUN apt-get update && apt-get install -y --no-install-recommends \
+        ros-humble-turtlebot3 \
+        ros-humble-turtlebot3-simulations \
+        ros-humble-turtlebot3-gazebo \
+        ros-humble-turtlebot3-navigation2 \
+        ros-humble-nav2-bringup \
+        ros-humble-navigation2 \
+        ros-humble-cartographer \
+        ros-humble-cartographer-ros \
+        ros-humble-rmw-cyclonedds-cpp \
+        ros-humble-rosbag2 \
+        ros-humble-rosbag2-storage-default-plugins \
+        python3-colcon-common-extensions \
+        python3-pip \
+        wget \
+        ca-certificates \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN pip3 install --no-cache-dir 'pyyaml>=6.0' 'click>=8.1'
+
+ENV RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
+
+# Remap the burger sensors so they publish ``<topic>_src``; the udm-bench
+# passthrough relays (sim/launch/passthrough_relay.py) own the canonical
+# ``/scan`` and ``/imu``.
+RUN sed -i \
+        -e 's|~/out:=scan|~/out:=scan_src|' \
+        -e 's|~/out:=imu|~/out:=imu_src|' \
+    /opt/ros/humble/share/turtlebot3_gazebo/models/turtlebot3_burger/model.sdf
+
+# Patch the Nav2 params for this image's Nav2 (Humble, 1.1.x):
+#   1. ``set_initial_pose: true`` so AMCL self-localises at the spawn origin in
+#      headless mode (no RViz to set an initial pose) — otherwise it never
+#      publishes ``/amcl_pose`` and downstream costmaps stay empty.
+#   2. Plugins that register a legacy ``/`` lookup-name alias must use the
+#      ``pkg/Class`` form even though the shipped turtlebot3_navigation2 params
+#      use the newer ``pkg::Class`` form. In this image those are the planners
+#      (navfn/smac/theta_star), the behaviors (spin/backup/drive_on_heading/
+#      wait/assisted_teleop) and the constrained_smoother. If any one fails to
+#      load, the lifecycle manager aborts the whole Nav2 bringup, so costmaps
+#      never activate. All other plugins (controller/DWB, costmap layers,
+#      simple_smoother, bt_navigator) only register the ``::`` type name.
+RUN for P in /opt/ros/humble/share/turtlebot3_navigation2/param/*.yaml; do \
+        sed -i -E \
+            -e 's/^([[:space:]]*)set_initial_pose: false/\1set_initial_pose: true/' \
+            -e 's#(plugin: "nav2_(navfn|smac|theta_star)_planner)::#\1/#' \
+            -e 's#(plugin: "nav2_behaviors)::#\1/#' \
+            -e 's#(plugin: "nav2_constrained_smoother)::#\1/#' \
+        "$P"; \
+    done
+
+# Copy checked-in worlds and launch files. The launch files import shared
+# helpers via ``from sim.launch._common import ...`` so they are placed under a
+# real ``sim/launch`` package on PYTHONPATH (their filenames contain ``.launch``
+# and are not importable as modules, so cross-imports go through ``_common``).
+COPY sim/worlds/ /opt/udm-bench/worlds/
+COPY sim/launch/ /opt/udm-bench/sim/launch/
+RUN touch /opt/udm-bench/sim/__init__.py /opt/udm-bench/sim/launch/__init__.py
+ENV PYTHONPATH=/opt/udm-bench:${PYTHONPATH}
+
+# Source ROS + TurtleBot3 model in interactive shells
+RUN { \
+        echo "source /opt/ros/humble/setup.bash"; \
+        echo "export TURTLEBOT3_MODEL=${TURTLEBOT3_MODEL}"; \
+        echo "export ROS_DOMAIN_ID=${ROS_DOMAIN_ID}"; \
+        echo "export RMW_IMPLEMENTATION=${RMW_IMPLEMENTATION}"; \
+    } >> /root/.bashrc
+
+# Healthcheck: ROS2 daemon responds to `ros2 daemon status`
+HEALTHCHECK --interval=30s --timeout=10s --start-period=30s --retries=3 \
+    CMD bash -c "source /opt/ros/humble/setup.bash && ros2 daemon status" || exit 1
+
+ENTRYPOINT ["/ros_entrypoint.sh"]
+CMD ["bash", "-lc", "ros2 launch /opt/udm-bench/sim/launch/turtlebot3.launch.py"]

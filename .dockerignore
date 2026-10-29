@@ -1,0 +1,21 @@
+# Build context is the repo root (see sim/docker-compose.yml). Keep it lean.
+.git
+.gitignore
+.venv
+**/__pycache__
+**/*.pyc
+.pytest_cache
+.ruff_cache
+.mypy_cache
+*.egg-info
+runs/
+results/
+scoring_out/
+docs/
+leaderboard/
+harness/
+scoring/
+tests/
+analysis/
+paper/
+scoring_results_*/

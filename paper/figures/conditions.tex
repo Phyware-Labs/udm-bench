@@ -1,0 +1,59 @@
+% Hand-drawn structural figure: what the benchmark holds fixed and what it varies.
+\begin{figure}[t]
+\centering
+\resizebox{\columnwidth}{!}{%
+\begin{tikzpicture}[
+  font=\small,
+  >=Latex,
+  box/.style   = {draw, rounded corners=2pt, align=center, inner sep=4pt,
+                  minimum height=7.5mm},
+  fixed/.style = {box, fill=gray!10, minimum width=76mm},
+  iface/.style = {box, text width=34mm, align=center, minimum height=9mm,
+                  font=\small},
+  base/.style  = {iface, fill=white},
+  udm/.style   = {iface, fill=blue!8, draw=blue!55},
+  lbl/.style   = {font=\scriptsize\itshape, text=black!60},
+]
+
+% --- fixed input -------------------------------------------------------
+\node[fixed] (rec) {One finished mission recording\\[1pt]
+  \scriptsize identical decoded telemetry, downsampled to 2\,Hz};
+
+% --- the varied layer: four telemetry interfaces -----------------------
+\node[base, below left =11mm and 1.5mm of rec.south] (a)
+  {\textbf{A}\; raw bag (text)};
+\node[base, below right=11mm and 1.5mm of rec.south] (b)
+  {\textbf{B}\; generic SQL};
+\node[udm, below=3mm of a] (g)
+  {\textbf{G}\; UDM-MCP\\[-1pt]\scriptsize no \texttt{health\_scan}};
+\node[udm, below=3mm of b] (c)
+  {\textbf{C}\; UDM-MCP\\[-1pt]\scriptsize with \texttt{health\_scan}};
+
+\begin{scope}[on background layer]
+  \node[draw=black!40, dashed, rounded corners=3pt,
+        fit=(a)(b)(g)(c), inner sep=3.5mm] (varied) {};
+\end{scope}
+\node[lbl, anchor=south east] at ([yshift=0.6mm]varied.north east)
+  {the only layer that varies};
+
+% --- agent and fixed answer channel ------------------------------------
+\node[fixed, below=8mm of varied.south] (agent)
+  {LLM agent \;\scriptsize(\texttt{gpt-5-mini}, \texttt{gpt-5})};
+\node[fixed, below=6mm of agent] (ans)
+  {\texttt{submit\_diagnosis} \;--\; same channel for every condition\\[1pt]
+   \scriptsize fault id \;$|$\; \texttt{no\_fault} \;$|$\; vendor attribution};
+
+% --- wiring ------------------------------------------------------------
+\draw[->, thick, black!60] (rec.south) -- (varied.north);
+\draw[->, thick, black!60] (varied.south) -- (agent.north);
+\draw[->, thick, black!60] (agent.south) -- (ans.north);
+
+\end{tikzpicture}%
+}
+\caption{The benchmark isolates the data-model layer. Every condition analyses the
+\emph{same} recording and commits its answer through the \emph{same} channel; only
+the interface between the agent and the telemetry changes. \condG{} removes the
+generic triage tool from \condC, separating what the schema does on its own from
+what a tool written once against the schema adds.}
+\label{fig:design}
+\end{figure}

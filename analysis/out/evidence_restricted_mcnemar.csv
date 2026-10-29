@@ -1,0 +1,11 @@
+model,pair,metric,first,second,b,c,p,p (Holm),h
+gpt-5,C vs A,faults found,10/16,4/16,7,1,0.070,0.250,+0.78
+gpt-5,C vs B,faults found,10/16,2/16,8,0,0.008,0.039,+1.10
+gpt-5,C vs G,faults found,10/16,5/16,5,0,0.062,0.250,+0.64
+gpt-5,G vs A,faults found,5/16,4/16,2,1,1.000,1.000,+0.14
+gpt-5,G vs B,faults found,5/16,2/16,5,2,0.453,0.906,+0.46
+gpt-5-mini,C vs A,faults found,11/16,3/16,9,1,0.021,0.064,+1.06
+gpt-5-mini,C vs B,faults found,11/16,0/16,11,0,<0.001,0.005,+1.96
+gpt-5-mini,C vs G,faults found,11/16,4/16,7,0,0.016,0.062,+0.91
+gpt-5-mini,G vs A,faults found,4/16,3/16,3,2,1.000,1.000,+0.15
+gpt-5-mini,G vs B,faults found,4/16,0/16,4,0,0.125,0.250,+1.05

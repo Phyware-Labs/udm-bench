@@ -1,0 +1,9 @@
+model,condition,single,multi,delta,wrong vendor
+gpt-5,A raw bag,0.00,0.32,+0.32,6/13
+gpt-5,B SQL,0.00,0.27,+0.27,6/13
+gpt-5,G UDM-health_scan,0.00,0.09,+0.09,2/13
+gpt-5,C UDM+health_scan,0.00,0.09,+0.09,2/13
+gpt-5-mini,A raw bag,0.00,0.32,+0.32,6/13
+gpt-5-mini,B SQL,0.00,0.09,+0.09,2/13
+gpt-5-mini,G UDM-health_scan,0.12,0.23,+0.11,5/13
+gpt-5-mini,C UDM+health_scan,0.12,0.14,+0.02,2/13

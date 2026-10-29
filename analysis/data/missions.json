@@ -1,0 +1,889 @@
+{
+ "multi_warehouse_inspection-055745ce9bd1": {
+  "composition": "multi-vendor",
+  "faults": [],
+  "stats": {
+   "amcl_cov_max": 2.7880014035006937,
+   "att_nonfinite": 0.0,
+   "cmd_odom_resid": 0.2502213943455639,
+   "gps_gap_s": 0.612145256,
+   "imu_odom_wz_resid": 0.06747248068754261,
+   "local_costmap_occ_max": 0.5000000000000003,
+   "odom_amcl_div": 2.4840396756129235,
+   "px4_msgs": 1639.0,
+   "scan_gap_s": 0.606479001,
+   "scan_nonfinite_max": 0.3256944444444442,
+   "scan_rough_max": 0.023452654480934143,
+   "turtlebot3_msgs": 2450.0
+  }
+ },
+ "multi_warehouse_inspection-16df57983867": {
+  "composition": "multi-vendor",
+  "faults": [],
+  "stats": {
+   "amcl_cov_max": 1.7430880278029863,
+   "att_nonfinite": 0.0,
+   "cmd_odom_resid": 0.24654850627306044,
+   "gps_gap_s": 0.615412416,
+   "imu_odom_wz_resid": 0.04034234448529804,
+   "local_costmap_occ_max": 0.5000000000000003,
+   "odom_amcl_div": 1.813055233600384,
+   "px4_msgs": 1639.0,
+   "scan_gap_s": 0.608144414,
+   "scan_nonfinite_max": 0.3243055555555554,
+   "scan_rough_max": 0.024100258946418762,
+   "turtlebot3_msgs": 2569.0
+  }
+ },
+ "multi_warehouse_inspection-192d1832c601": {
+  "composition": "multi-vendor",
+  "faults": [],
+  "stats": {
+   "amcl_cov_max": 1.2160869683990367,
+   "att_nonfinite": 0.0,
+   "cmd_odom_resid": 0.2814966884325829,
+   "gps_gap_s": 0.520044212,
+   "imu_odom_wz_resid": 0.026766875690398338,
+   "local_costmap_occ_max": 0.5000000000000002,
+   "odom_amcl_div": 0.9289872381166594,
+   "px4_msgs": 1642.0,
+   "scan_gap_s": 0.608395946,
+   "scan_nonfinite_max": 0.25,
+   "scan_rough_max": 0.023842088878154755,
+   "turtlebot3_msgs": 2424.0
+  }
+ },
+ "multi_warehouse_inspection-2108de2bf587": {
+  "composition": "multi-vendor",
+  "faults": [],
+  "stats": {
+   "amcl_cov_max": 1.6995776274605439,
+   "att_nonfinite": 0.0,
+   "cmd_odom_resid": 0.22528271446127235,
+   "gps_gap_s": 0.520314704,
+   "imu_odom_wz_resid": 0.046010850440586046,
+   "local_costmap_occ_max": 0.5000000000000004,
+   "odom_amcl_div": 2.713989943784777,
+   "px4_msgs": 1639.0,
+   "scan_gap_s": 0.607919689,
+   "scan_nonfinite_max": 0.3187499999999998,
+   "scan_rough_max": 0.02420295774936676,
+   "turtlebot3_msgs": 2486.0
+  }
+ },
+ "multi_warehouse_inspection-260e025ef10f": {
+  "composition": "multi-vendor",
+  "faults": [
+   {
+    "fault_id": "px4_imu_saturation",
+    "vendor": "px4"
+   }
+  ],
+  "stats": {
+   "amcl_cov_max": 1.4909666828373542,
+   "att_nonfinite": 306.0,
+   "cmd_odom_resid": 0.19149861593455814,
+   "gps_gap_s": 0.524382561,
+   "imu_odom_wz_resid": 0.05508775747081934,
+   "local_costmap_occ_max": 0.5000000000000001,
+   "odom_amcl_div": 1.2909291932082934,
+   "px4_msgs": 1643.0,
+   "scan_gap_s": 0.606027929,
+   "scan_nonfinite_max": 0.2916666666666665,
+   "scan_rough_max": 0.024164855480194092,
+   "turtlebot3_msgs": 2551.0
+  }
+ },
+ "multi_warehouse_inspection-2e99ab1fbdff": {
+  "composition": "multi-vendor",
+  "faults": [],
+  "stats": {
+   "amcl_cov_max": 0.9310500891942886,
+   "att_nonfinite": 0.0,
+   "cmd_odom_resid": 0.26185096196767244,
+   "gps_gap_s": 0.520756706,
+   "imu_odom_wz_resid": 0.054850367625918064,
+   "local_costmap_occ_max": 0.5000000000000004,
+   "odom_amcl_div": 1.2043096795566,
+   "px4_msgs": 1640.0,
+   "scan_gap_s": 0.607813729,
+   "scan_nonfinite_max": 0.24791666666666667,
+   "scan_rough_max": 0.02476257085800171,
+   "turtlebot3_msgs": 2455.0
+  }
+ },
+ "multi_warehouse_inspection-34f57240a51f": {
+  "composition": "multi-vendor",
+  "faults": [
+   {
+    "fault_id": "px4_gps_dropout",
+    "vendor": "px4"
+   }
+  ],
+  "stats": {
+   "amcl_cov_max": 3.384360148735885,
+   "att_nonfinite": 0.0,
+   "cmd_odom_resid": 0.21865796165751292,
+   "gps_gap_s": 8.216019988,
+   "imu_odom_wz_resid": 0.04520905463453299,
+   "local_costmap_occ_max": 0.5,
+   "odom_amcl_div": 2.498393374335989,
+   "px4_msgs": 1626.0,
+   "scan_gap_s": 0.602517432,
+   "scan_nonfinite_max": 0.3013888888888887,
+   "scan_rough_max": 0.024188220500946045,
+   "turtlebot3_msgs": 2476.0
+  }
+ },
+ "multi_warehouse_inspection-3b8681137ded": {
+  "composition": "multi-vendor",
+  "faults": [
+   {
+    "fault_id": "px4_gps_dropout",
+    "vendor": "px4"
+   }
+  ],
+  "stats": {
+   "amcl_cov_max": 4.465328463320196,
+   "att_nonfinite": 0.0,
+   "cmd_odom_resid": 0.5002916759920846,
+   "gps_gap_s": 8.248010842,
+   "imu_odom_wz_resid": 0.046008751649466634,
+   "local_costmap_occ_max": 0.5000000000000003,
+   "odom_amcl_div": 4.577295364498089,
+   "px4_msgs": 1622.0,
+   "scan_gap_s": 0.605948536,
+   "scan_nonfinite_max": 0.3388888888888886,
+   "scan_rough_max": 0.024147748947143555,
+   "turtlebot3_msgs": 2565.0
+  }
+ },
+ "multi_warehouse_inspection-53ff451c7118": {
+  "composition": "multi-vendor",
+  "faults": [
+   {
+    "fault_id": "tb3_motor_stall",
+    "vendor": "turtlebot3"
+   }
+  ],
+  "stats": {
+   "att_nonfinite": 0.0,
+   "gps_gap_s": 0.615370421,
+   "px4_msgs": 1639.0,
+   "turtlebot3_msgs": 0.0
+  }
+ },
+ "multi_warehouse_inspection-6c2c6ccfc787": {
+  "composition": "multi-vendor",
+  "faults": [],
+  "stats": {
+   "att_nonfinite": 0.0,
+   "gps_gap_s": 0.611449615,
+   "px4_msgs": 1638.0,
+   "turtlebot3_msgs": 0.0
+  }
+ },
+ "multi_warehouse_inspection-6dae1e6e2ed3": {
+  "composition": "multi-vendor",
+  "faults": [
+   {
+    "fault_id": "px4_imu_saturation",
+    "vendor": "px4"
+   }
+  ],
+  "stats": {
+   "amcl_cov_max": 1.0533783008076056,
+   "att_nonfinite": 322.0,
+   "cmd_odom_resid": 0.2759786461553603,
+   "gps_gap_s": 0.516386533,
+   "imu_odom_wz_resid": 0.013407382784401312,
+   "local_costmap_occ_max": 0.5000000000000001,
+   "odom_amcl_div": 0.9916611715763786,
+   "px4_msgs": 1640.0,
+   "scan_gap_s": 0.60725438,
+   "scan_nonfinite_max": 0.24722222222222223,
+   "scan_rough_max": 0.02415551245212555,
+   "turtlebot3_msgs": 2389.0
+  }
+ },
+ "multi_warehouse_inspection-714c8c7497ad": {
+  "composition": "multi-vendor",
+  "faults": [
+   {
+    "fault_id": "px4_gps_dropout",
+    "vendor": "px4"
+   }
+  ],
+  "stats": {
+   "amcl_cov_max": 1.6794893198581275,
+   "att_nonfinite": 0.0,
+   "cmd_odom_resid": 0.3784621755194344,
+   "gps_gap_s": 8.320082217,
+   "imu_odom_wz_resid": 0.039103192973856914,
+   "local_costmap_occ_max": 0.5,
+   "odom_amcl_div": 1.628103099663441,
+   "px4_msgs": 1629.0,
+   "scan_gap_s": 0.60378844,
+   "scan_nonfinite_max": 0.25416666666666665,
+   "scan_rough_max": 0.024240046739578247,
+   "turtlebot3_msgs": 2490.0
+  }
+ },
+ "multi_warehouse_inspection-927b15ec8f72": {
+  "composition": "multi-vendor",
+  "faults": [
+   {
+    "fault_id": "px4_imu_saturation",
+    "vendor": "px4"
+   }
+  ],
+  "stats": {
+   "amcl_cov_max": 1.1589078804349673,
+   "att_nonfinite": 279.0,
+   "cmd_odom_resid": 0.23505235175609157,
+   "gps_gap_s": 0.512348411,
+   "imu_odom_wz_resid": 0.03083557990759338,
+   "local_costmap_occ_max": 0.5000000000000001,
+   "odom_amcl_div": 0.725083390367052,
+   "px4_msgs": 1637.0,
+   "scan_gap_s": 0.604070442,
+   "scan_nonfinite_max": 0.2777777777777777,
+   "scan_rough_max": 0.02401718497276306,
+   "turtlebot3_msgs": 2421.0
+  }
+ },
+ "multi_warehouse_inspection-ad35af5e1c16": {
+  "composition": "multi-vendor",
+  "faults": [],
+  "stats": {
+   "amcl_cov_max": 1.2408898663746866,
+   "att_nonfinite": 0.0,
+   "cmd_odom_resid": 0.3288160014438056,
+   "gps_gap_s": 0.532087275,
+   "imu_odom_wz_resid": 0.04899572343088944,
+   "local_costmap_occ_max": 0.5000000000000001,
+   "odom_amcl_div": 1.2490423168627562,
+   "px4_msgs": 1639.0,
+   "scan_gap_s": 0.602870579,
+   "scan_nonfinite_max": 0.25277777777777777,
+   "scan_rough_max": 0.024162694811820984,
+   "turtlebot3_msgs": 2442.0
+  }
+ },
+ "multi_warehouse_inspection-b8783863d177": {
+  "composition": "multi-vendor",
+  "faults": [
+   {
+    "fault_id": "px4_gps_dropout",
+    "vendor": "px4"
+   }
+  ],
+  "stats": {
+   "att_nonfinite": 0.0,
+   "gps_gap_s": 8.392023388,
+   "px4_msgs": 1623.0,
+   "turtlebot3_msgs": 0.0
+  }
+ },
+ "multi_warehouse_inspection-c5c0b286cc74": {
+  "composition": "multi-vendor",
+  "faults": [
+   {
+    "fault_id": "tb3_lidar_noise",
+    "vendor": "turtlebot3"
+   }
+  ],
+  "stats": {
+   "amcl_cov_max": 4.329408682317765,
+   "att_nonfinite": 0.0,
+   "cmd_odom_resid": 0.32185466738079604,
+   "gps_gap_s": 0.5152795,
+   "imu_odom_wz_resid": 0.06075233883467825,
+   "local_costmap_occ_max": 0.5883333333333334,
+   "odom_amcl_div": 4.430278381768327,
+   "px4_msgs": 1639.0,
+   "scan_gap_s": 0.611531851,
+   "scan_nonfinite_max": 0.32847222222222194,
+   "scan_rough_max": 0.03996145725250244,
+   "turtlebot3_msgs": 2602.0
+  }
+ },
+ "multi_warehouse_inspection-e7b7fc716383": {
+  "composition": "multi-vendor",
+  "faults": [],
+  "stats": {
+   "amcl_cov_max": 0.924247285390291,
+   "att_nonfinite": 0.0,
+   "cmd_odom_resid": 0.1999778243592588,
+   "gps_gap_s": 0.513599083,
+   "imu_odom_wz_resid": 0.031031589730515563,
+   "local_costmap_occ_max": 0.5000000000000001,
+   "odom_amcl_div": 0.5966207572066415,
+   "px4_msgs": 1642.0,
+   "scan_gap_s": 0.606408267,
+   "scan_nonfinite_max": 0.26388888888888884,
+   "scan_rough_max": 0.023820951581001282,
+   "turtlebot3_msgs": 2438.0
+  }
+ },
+ "multi_warehouse_inspection-ebb43f8a3966": {
+  "composition": "multi-vendor",
+  "faults": [
+   {
+    "fault_id": "px4_gps_dropout",
+    "vendor": "px4"
+   }
+  ],
+  "stats": {
+   "amcl_cov_max": 1.0204942844189722,
+   "att_nonfinite": 0.0,
+   "cmd_odom_resid": 0.19394318038324387,
+   "gps_gap_s": 8.424115128,
+   "imu_odom_wz_resid": 0.06933648224523897,
+   "local_costmap_occ_max": 0.5000000000000001,
+   "odom_amcl_div": 1.1975515532511454,
+   "px4_msgs": 1623.0,
+   "scan_gap_s": 0.617081389,
+   "scan_nonfinite_max": 0.30555555555555536,
+   "scan_rough_max": 0.023632660508155823,
+   "turtlebot3_msgs": 2510.0
+  }
+ },
+ "multi_warehouse_inspection-efd884f86c04": {
+  "composition": "multi-vendor",
+  "faults": [
+   {
+    "fault_id": "px4_imu_saturation",
+    "vendor": "px4"
+   }
+  ],
+  "stats": {
+   "amcl_cov_max": 1.1663070567979443,
+   "att_nonfinite": 332.0,
+   "cmd_odom_resid": 0.36808597942747323,
+   "gps_gap_s": 0.513338129,
+   "imu_odom_wz_resid": 0.03700704111257624,
+   "local_costmap_occ_max": 0.5000000000000001,
+   "odom_amcl_div": 1.064576729670841,
+   "px4_msgs": 1641.0,
+   "scan_gap_s": 0.610894374,
+   "scan_nonfinite_max": 0.24722222222222223,
+   "scan_rough_max": 0.024062275886535645,
+   "turtlebot3_msgs": 2399.0
+  }
+ },
+ "multi_warehouse_inspection-fadb4b5e82d6": {
+  "composition": "multi-vendor",
+  "faults": [],
+  "stats": {
+   "amcl_cov_max": 2.1460649452281464,
+   "att_nonfinite": 0.0,
+   "cmd_odom_resid": 0.24014362926556648,
+   "gps_gap_s": 0.513770583,
+   "imu_odom_wz_resid": 0.038057798972549337,
+   "local_costmap_occ_max": 0.5000000000000003,
+   "odom_amcl_div": 2.29937219184785,
+   "px4_msgs": 1643.0,
+   "scan_gap_s": 0.613629338,
+   "scan_nonfinite_max": 0.2916666666666665,
+   "scan_rough_max": 0.024217627942562103,
+   "turtlebot3_msgs": 2501.0
+  }
+ },
+ "multi_warehouse_inspection-fbb085b6422b": {
+  "composition": "multi-vendor",
+  "faults": [
+   {
+    "fault_id": "tb3_imu_bias",
+    "vendor": "turtlebot3"
+   }
+  ],
+  "stats": {
+   "amcl_cov_max": 1.7049713906774968,
+   "att_nonfinite": 0.0,
+   "cmd_odom_resid": 0.2675160617804544,
+   "gps_gap_s": 0.604872482,
+   "imu_odom_wz_resid": 0.08675597526687276,
+   "local_costmap_occ_max": 0.5000000000000003,
+   "odom_amcl_div": 1.8255994059675493,
+   "px4_msgs": 1642.0,
+   "scan_gap_s": 0.606138743,
+   "scan_nonfinite_max": 0.25625,
+   "scan_rough_max": 0.02509923279285431,
+   "turtlebot3_msgs": 2468.0
+  }
+ },
+ "multi_warehouse_inspection-fde57c479e53": {
+  "composition": "multi-vendor",
+  "faults": [
+   {
+    "fault_id": "tb3_lidar_noise",
+    "vendor": "turtlebot3"
+   }
+  ],
+  "stats": {
+   "amcl_cov_max": 3.611859307182791,
+   "att_nonfinite": 0.0,
+   "cmd_odom_resid": 0.645593571676636,
+   "gps_gap_s": 0.514256932,
+   "imu_odom_wz_resid": 0.06815213942497869,
+   "local_costmap_occ_max": 0.9066666666666666,
+   "odom_amcl_div": 3.211814363802309,
+   "px4_msgs": 1638.0,
+   "scan_gap_s": 0.602782476,
+   "scan_nonfinite_max": 0.6854166666666668,
+   "scan_rough_max": 0.057249002158641815,
+   "turtlebot3_msgs": 2456.0
+  }
+ },
+ "single_tb3_warehouse_nav-1c73f25a6de2": {
+  "composition": "single-vendor",
+  "faults": [
+   {
+    "fault_id": "tb3_odometry_drift",
+    "vendor": "turtlebot3"
+   }
+  ],
+  "stats": {
+   "amcl_cov_max": 1.044820369993429,
+   "cmd_odom_resid": 0.2001193272356995,
+   "imu_odom_wz_resid": 0.03298544355486997,
+   "local_costmap_occ_max": 0.5000000000000001,
+   "odom_amcl_div": 0.9537907656587651,
+   "px4_msgs": 0.0,
+   "scan_gap_s": 0.603829526,
+   "scan_nonfinite_max": 0.25763888888888886,
+   "scan_rough_max": 0.0240953266620636,
+   "turtlebot3_msgs": 1410.0
+  }
+ },
+ "single_tb3_warehouse_nav-1f457ed59de5": {
+  "composition": "single-vendor",
+  "faults": [],
+  "stats": {
+   "amcl_cov_max": 0.9029919143478589,
+   "cmd_odom_resid": 0.15427480134122545,
+   "imu_odom_wz_resid": 0.048981478705391567,
+   "local_costmap_occ_max": 0.5000000000000001,
+   "odom_amcl_div": 0.2079897912954053,
+   "px4_msgs": 0.0,
+   "scan_gap_s": 0.602963358,
+   "scan_nonfinite_max": 0.2465277777777778,
+   "scan_rough_max": 0.023919284343719482,
+   "turtlebot3_msgs": 1366.0
+  }
+ },
+ "single_tb3_warehouse_nav-2bf157983b9a": {
+  "composition": "single-vendor",
+  "faults": [],
+  "stats": {
+   "amcl_cov_max": 0.5366992321626298,
+   "cmd_odom_resid": 0.14358820068991152,
+   "imu_odom_wz_resid": 0.033915385825735736,
+   "local_costmap_occ_max": 0.5000000000000002,
+   "odom_amcl_div": 0.24368585705401546,
+   "px4_msgs": 0.0,
+   "scan_gap_s": 0.602363025,
+   "scan_nonfinite_max": 0.2465277777777778,
+   "scan_rough_max": 0.02345806360244751,
+   "turtlebot3_msgs": 1369.0
+  }
+ },
+ "single_tb3_warehouse_nav-38e81ac396e5": {
+  "composition": "single-vendor",
+  "faults": [],
+  "stats": {
+   "amcl_cov_max": 1.882597003487203,
+   "cmd_odom_resid": 0.20197849182569233,
+   "imu_odom_wz_resid": 0.034494207643957435,
+   "local_costmap_occ_max": 0.5,
+   "odom_amcl_div": 0.5041488694294919,
+   "px4_msgs": 0.0,
+   "scan_gap_s": 0.602213495,
+   "scan_nonfinite_max": 0.25277777777777777,
+   "scan_rough_max": 0.024319246411323547,
+   "turtlebot3_msgs": 1410.0
+  }
+ },
+ "single_tb3_warehouse_nav-3a454f8b0a9f": {
+  "composition": "single-vendor",
+  "faults": [],
+  "stats": {
+   "amcl_cov_max": 2.3667379101058477,
+   "cmd_odom_resid": 0.35983659328911594,
+   "imu_odom_wz_resid": 0.036643573850474884,
+   "local_costmap_occ_max": 0.5,
+   "odom_amcl_div": 1.9957788706135824,
+   "px4_msgs": 0.0,
+   "scan_gap_s": 0.603801733,
+   "scan_nonfinite_max": 0.25069444444444444,
+   "scan_rough_max": 0.023899972438812256,
+   "turtlebot3_msgs": 1503.0
+  }
+ },
+ "single_tb3_warehouse_nav-5e4b2c078005": {
+  "composition": "single-vendor",
+  "faults": [],
+  "stats": {
+   "amcl_cov_max": 1.8394564864368914,
+   "cmd_odom_resid": 0.24101843591703162,
+   "imu_odom_wz_resid": 0.03303090387232945,
+   "local_costmap_occ_max": 0.5000000000000002,
+   "odom_amcl_div": 1.880924624132321,
+   "px4_msgs": 0.0,
+   "scan_gap_s": 0.602170787,
+   "scan_nonfinite_max": 0.27708333333333324,
+   "scan_rough_max": 0.023655414581298828,
+   "turtlebot3_msgs": 1428.0
+  }
+ },
+ "single_tb3_warehouse_nav-61ef6fb26bb6": {
+  "composition": "single-vendor",
+  "faults": [],
+  "stats": {
+   "amcl_cov_max": 0.5590409479021096,
+   "cmd_odom_resid": 0.3412345360199058,
+   "imu_odom_wz_resid": 0.03539493573069477,
+   "local_costmap_occ_max": 0.5,
+   "odom_amcl_div": 0.5442530036172442,
+   "px4_msgs": 0.0,
+   "scan_gap_s": 0.602266202,
+   "scan_nonfinite_max": 0.24444444444444446,
+   "scan_rough_max": 0.023846030235290527,
+   "turtlebot3_msgs": 1478.0
+  }
+ },
+ "single_tb3_warehouse_nav-63b908e0a3be": {
+  "composition": "single-vendor",
+  "faults": [],
+  "stats": {
+   "amcl_cov_max": 1.0970393420649214,
+   "cmd_odom_resid": 0.3307156052774342,
+   "imu_odom_wz_resid": 0.05513972187116347,
+   "local_costmap_occ_max": 0.5,
+   "odom_amcl_div": 0.535851235449966,
+   "px4_msgs": 0.0,
+   "scan_gap_s": 0.602841793,
+   "scan_nonfinite_max": 0.2451388888888889,
+   "scan_rough_max": 0.023621901869773865,
+   "turtlebot3_msgs": 1490.0
+  }
+ },
+ "single_tb3_warehouse_nav-69b36b529145": {
+  "composition": "single-vendor",
+  "faults": [
+   {
+    "fault_id": "tb3_lidar_dropout",
+    "vendor": "turtlebot3"
+   }
+  ],
+  "stats": {
+   "amcl_cov_max": 2.8421633860274658,
+   "cmd_odom_resid": 0.2805451815062771,
+   "imu_odom_wz_resid": 0.05299658107590984,
+   "local_costmap_occ_max": 0.7209259259259256,
+   "odom_amcl_div": 4.136664589199194,
+   "px4_msgs": 0.0,
+   "scan_gap_s": 5.210292362,
+   "scan_nonfinite_max": 0.37152777777777746,
+   "scan_rough_max": 0.02352118492126465,
+   "turtlebot3_msgs": 1420.0
+  }
+ },
+ "single_tb3_warehouse_nav-6b25ddc3beed": {
+  "composition": "single-vendor",
+  "faults": [
+   {
+    "fault_id": "tb3_map_mismatch",
+    "vendor": "turtlebot3"
+   }
+  ],
+  "stats": {
+   "amcl_cov_max": 2.211687968586281,
+   "cmd_odom_resid": 0.19878468941248562,
+   "imu_odom_wz_resid": 0.0490112546915881,
+   "local_costmap_occ_max": 0.5,
+   "odom_amcl_div": 0.9168173880409172,
+   "px4_msgs": 0.0,
+   "scan_gap_s": 0.604849595,
+   "scan_nonfinite_max": 0.26388888888888884,
+   "scan_rough_max": 0.024059027433395386,
+   "turtlebot3_msgs": 1446.0
+  }
+ },
+ "single_tb3_warehouse_nav-7c3f79f9cfea": {
+  "composition": "single-vendor",
+  "faults": [],
+  "stats": {
+   "amcl_cov_max": 0.8129395380432511,
+   "cmd_odom_resid": 0.18603317564476138,
+   "imu_odom_wz_resid": 0.03105682092776681,
+   "local_costmap_occ_max": 0.5,
+   "odom_amcl_div": 0.674847076673553,
+   "px4_msgs": 0.0,
+   "scan_gap_s": 0.60318847,
+   "scan_nonfinite_max": 0.2451388888888889,
+   "scan_rough_max": 0.02327638864517212,
+   "turtlebot3_msgs": 1453.0
+  }
+ },
+ "single_tb3_warehouse_nav-8f1ba3b41a13": {
+  "composition": "single-vendor",
+  "faults": [],
+  "stats": {
+   "amcl_cov_max": 0.2485696185125666,
+   "cmd_odom_resid": 0.2422306258093581,
+   "imu_odom_wz_resid": 0.016105734550235284,
+   "local_costmap_occ_max": 0.5000000000000001,
+   "odom_amcl_div": 0.1629186521561775,
+   "px4_msgs": 0.0,
+   "scan_gap_s": 0.602526094,
+   "scan_nonfinite_max": 0.2465277777777778,
+   "scan_rough_max": 0.024401500821113586,
+   "turtlebot3_msgs": 1362.0
+  }
+ },
+ "single_tb3_warehouse_nav-af1acaec5dde": {
+  "composition": "single-vendor",
+  "faults": [
+   {
+    "fault_id": "tb3_lidar_noise",
+    "vendor": "turtlebot3"
+   }
+  ],
+  "stats": {
+   "amcl_cov_max": 2.1931519695677393,
+   "cmd_odom_resid": 0.19927582033814245,
+   "imu_odom_wz_resid": 0.04512488526440201,
+   "local_costmap_occ_max": 0.5905555555555556,
+   "odom_amcl_div": 1.1206690291840746,
+   "px4_msgs": 0.0,
+   "scan_gap_s": 0.602398046,
+   "scan_nonfinite_max": 0.273611111111111,
+   "scan_rough_max": 0.041149333119392395,
+   "turtlebot3_msgs": 1424.0
+  }
+ },
+ "single_tb3_warehouse_nav-b023131030f7": {
+  "composition": "single-vendor",
+  "faults": [],
+  "stats": {
+   "amcl_cov_max": 2.186441433319165,
+   "cmd_odom_resid": 0.24878878903200183,
+   "imu_odom_wz_resid": 0.04686671728155719,
+   "local_costmap_occ_max": 0.5000000000000002,
+   "odom_amcl_div": 1.480081591643924,
+   "px4_msgs": 0.0,
+   "scan_gap_s": 0.602289116,
+   "scan_nonfinite_max": 0.2520833333333333,
+   "scan_rough_max": 0.02393127977848053,
+   "turtlebot3_msgs": 1434.0
+  }
+ },
+ "single_tb3_warehouse_nav-b546d706eb89": {
+  "composition": "single-vendor",
+  "faults": [
+   {
+    "fault_id": "tb3_odometry_drift",
+    "vendor": "turtlebot3"
+   }
+  ],
+  "stats": {
+   "amcl_cov_max": 0.7929783133506916,
+   "cmd_odom_resid": 0.3478383892318381,
+   "imu_odom_wz_resid": 0.036213639050909366,
+   "local_costmap_occ_max": 0.5,
+   "odom_amcl_div": 0.6814160978619517,
+   "px4_msgs": 0.0,
+   "scan_gap_s": 0.603916933,
+   "scan_nonfinite_max": 0.24444444444444446,
+   "scan_rough_max": 0.023858308792114258,
+   "turtlebot3_msgs": 1406.0
+  }
+ },
+ "single_tb3_warehouse_nav-b9cb7cf63f92": {
+  "composition": "single-vendor",
+  "faults": [
+   {
+    "fault_id": "tb3_costmap_inflation_drift",
+    "vendor": "turtlebot3"
+   }
+  ],
+  "stats": {
+   "amcl_cov_max": 0.643082789925529,
+   "cmd_odom_resid": 0.19883449515015916,
+   "imu_odom_wz_resid": 0.025718802694678706,
+   "local_costmap_occ_max": 0.9666666666666668,
+   "odom_amcl_div": 0.2196319427965167,
+   "px4_msgs": 0.0,
+   "scan_gap_s": 0.602470919,
+   "scan_nonfinite_max": 0.24583333333333335,
+   "scan_rough_max": 0.024082571268081665,
+   "turtlebot3_msgs": 1365.0
+  }
+ },
+ "single_tb3_warehouse_nav-c991367a580c": {
+  "composition": "single-vendor",
+  "faults": [],
+  "stats": {
+   "amcl_cov_max": 1.3653116315119636,
+   "cmd_odom_resid": 0.18631134087258622,
+   "imu_odom_wz_resid": 0.017108590098516303,
+   "local_costmap_occ_max": 0.5000000000000001,
+   "odom_amcl_div": 0.7895909266288137,
+   "px4_msgs": 0.0,
+   "scan_gap_s": 0.605618499,
+   "scan_nonfinite_max": 0.24722222222222223,
+   "scan_rough_max": 0.024451613426208496,
+   "turtlebot3_msgs": 1371.0
+  }
+ },
+ "single_tb3_warehouse_nav-c9b3a25329df": {
+  "composition": "single-vendor",
+  "faults": [
+   {
+    "fault_id": "tb3_motor_stall",
+    "vendor": "turtlebot3"
+   }
+  ],
+  "stats": {
+   "amcl_cov_max": 1.3085427899052133,
+   "cmd_odom_resid": 0.29743564582241,
+   "imu_odom_wz_resid": 0.03706029456747724,
+   "local_costmap_occ_max": 0.5,
+   "odom_amcl_div": 1.2305388348777677,
+   "px4_msgs": 0.0,
+   "scan_gap_s": 0.602917435,
+   "scan_nonfinite_max": 0.24444444444444446,
+   "scan_rough_max": 0.02394910156726837,
+   "turtlebot3_msgs": 1478.0
+  }
+ },
+ "single_tb3_warehouse_nav-cf218d05845c": {
+  "composition": "single-vendor",
+  "faults": [],
+  "stats": {
+   "amcl_cov_max": 1.8378555983829372,
+   "cmd_odom_resid": 0.19434673839566266,
+   "imu_odom_wz_resid": 0.051743338854591495,
+   "local_costmap_occ_max": 0.5,
+   "odom_amcl_div": 1.558972065838294,
+   "px4_msgs": 0.0,
+   "scan_gap_s": 0.602242787,
+   "scan_nonfinite_max": 0.2597222222222222,
+   "scan_rough_max": 0.0243665874004364,
+   "turtlebot3_msgs": 1470.0
+  }
+ },
+ "single_tb3_warehouse_nav-d5c91528c77d": {
+  "composition": "single-vendor",
+  "faults": [],
+  "stats": {
+   "amcl_cov_max": 1.1575637168256967,
+   "cmd_odom_resid": 0.14505210826955306,
+   "imu_odom_wz_resid": 0.04153344289249374,
+   "local_costmap_occ_max": 0.5000000000000001,
+   "odom_amcl_div": 1.0214110554287334,
+   "px4_msgs": 0.0,
+   "scan_gap_s": 0.603040128,
+   "scan_nonfinite_max": 0.2451388888888889,
+   "scan_rough_max": 0.02387598156929016,
+   "turtlebot3_msgs": 1388.0
+  }
+ },
+ "single_tb3_warehouse_nav-da536aedf935": {
+  "composition": "single-vendor",
+  "faults": [
+   {
+    "fault_id": "tb3_imu_bias",
+    "vendor": "turtlebot3"
+   }
+  ],
+  "stats": {
+   "amcl_cov_max": 0.813210107758839,
+   "cmd_odom_resid": 0.14822933550637654,
+   "imu_odom_wz_resid": 0.07506327155764755,
+   "local_costmap_occ_max": 0.5000000000000001,
+   "odom_amcl_div": 0.8804392936819008,
+   "px4_msgs": 0.0,
+   "scan_gap_s": 0.602383196,
+   "scan_nonfinite_max": 0.25902777777777775,
+   "scan_rough_max": 0.024647727608680725,
+   "turtlebot3_msgs": 1460.0
+  }
+ },
+ "single_tb3_warehouse_nav-de02ec618828": {
+  "composition": "single-vendor",
+  "faults": [],
+  "stats": {
+   "amcl_cov_max": 0.5660618803380646,
+   "cmd_odom_resid": 0.18449678852906415,
+   "imu_odom_wz_resid": 0.020486121412629635,
+   "local_costmap_occ_max": 0.5000000000000001,
+   "odom_amcl_div": 0.25159904096069363,
+   "px4_msgs": 0.0,
+   "scan_gap_s": 0.602205429,
+   "scan_nonfinite_max": 0.24444444444444446,
+   "scan_rough_max": 0.024072855710983276,
+   "turtlebot3_msgs": 1375.0
+  }
+ },
+ "single_tb3_warehouse_nav-e02889f74534": {
+  "composition": "single-vendor",
+  "faults": [
+   {
+    "fault_id": "tb3_motor_stall",
+    "vendor": "turtlebot3"
+   }
+  ],
+  "stats": {
+   "amcl_cov_max": 0.5962743249849923,
+   "cmd_odom_resid": 0.22069045115800184,
+   "imu_odom_wz_resid": 0.039735383686951335,
+   "local_costmap_occ_max": 0.5,
+   "odom_amcl_div": 0.5813428615992441,
+   "px4_msgs": 0.0,
+   "scan_gap_s": 0.602208853,
+   "scan_nonfinite_max": 0.24444444444444446,
+   "scan_rough_max": 0.024186596274375916,
+   "turtlebot3_msgs": 1436.0
+  }
+ },
+ "single_tb3_warehouse_nav-e76276bf3fe0": {
+  "composition": "single-vendor",
+  "faults": [
+   {
+    "fault_id": "tb3_odometry_drift",
+    "vendor": "turtlebot3"
+   }
+  ],
+  "stats": {
+   "amcl_cov_max": 0.7589433941251664,
+   "cmd_odom_resid": 0.20653121232880892,
+   "imu_odom_wz_resid": 0.043877890611805435,
+   "local_costmap_occ_max": 0.5,
+   "odom_amcl_div": 0.7917308747324597,
+   "px4_msgs": 0.0,
+   "scan_gap_s": 0.602767509,
+   "scan_nonfinite_max": 0.2548611111111111,
+   "scan_rough_max": 0.023775368928909302,
+   "turtlebot3_msgs": 1406.0
+  }
+ },
+ "single_tb3_warehouse_nav-f64bce73f2a7": {
+  "composition": "single-vendor",
+  "faults": [],
+  "stats": {
+   "amcl_cov_max": 0.350567142118252,
+   "cmd_odom_resid": 0.22054746758690605,
+   "imu_odom_wz_resid": 0.029261681204249906,
+   "local_costmap_occ_max": 0.5,
+   "odom_amcl_div": 0.17422879960604892,
+   "px4_msgs": 0.0,
+   "scan_gap_s": 0.602171722,
+   "scan_nonfinite_max": 0.2451388888888889,
+   "scan_rough_max": 0.023703843355178833,
+   "turtlebot3_msgs": 1360.0
+  }
+ }
+}

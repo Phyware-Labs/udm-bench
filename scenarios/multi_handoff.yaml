@@ -1,0 +1,39 @@
+id: multi_handoff
+composition: multi-vendor
+vendors: [tb3, px4]
+world: multi_vendor_warehouse
+description: >
+  Multi-vendor handoff scenario: TurtleBot3 navigates to a pickup point;
+  PX4 SITL drone takes off and surveys overhead. Either platform's
+  telemetry can carry the fault and the agent must attribute correctly.
+mission_template:
+  duration_s: 180
+  tb3:
+    waypoints:
+      - { x: 2.0, y: 1.0 }   # pickup
+      - { x: 4.5, y: 2.0 }   # dropoff
+  px4:
+    takeoff_alt_m: 10.0
+    overhead_target_xy: { x: 3.0, y: 1.5 }
+  recorder:
+    bag_topics_tb3:
+      - /scan
+      - /odom
+      - /imu
+      - /cmd_vel
+    bag_topics_px4:
+      - /fmu/out/vehicle_global_position
+      - /fmu/out/vehicle_attitude
+      - /fmu/out/battery_status
+fault_mix:
+  fault_probability: 0.5
+  vendor_weights:
+    tb3: 0.5
+    px4: 0.5
+  eligible_fault_ids:
+    - tb3_motor_stall
+    - tb3_odometry_drift
+    - tb3_lidar_dropout
+    - px4_gps_dropout
+    - px4_motor_failure
+    - px4_battery_sag

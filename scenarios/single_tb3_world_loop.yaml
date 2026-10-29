@@ -1,0 +1,31 @@
+id: single_tb3_world_loop
+composition: single-vendor
+vendors: [tb3]
+world: turtlebot3_world
+description: >
+  Single TurtleBot3 repeating a closed-loop trajectory in the default
+  turtlebot3_world. Tests drift-class faults whose symptoms accumulate over
+  repeated traversals.
+mission_template:
+  duration_s: 120
+  loop_count: 3
+  waypoints:
+    - { x: 1.5,  y:  0.0 }
+    - { x: 1.5,  y:  1.5 }
+    - { x: 0.0,  y:  1.5 }
+    - { x: 0.0,  y:  0.0 }
+  recorder:
+    bag_topics:
+      - /scan
+      - /odom
+      - /imu
+      - /cmd_vel
+      - /amcl_pose
+fault_mix:
+  fault_probability: 0.5
+  eligible_fault_ids:
+    - tb3_odometry_drift
+    - tb3_imu_bias
+    - tb3_amcl_failure
+    - tb3_motor_stall
+    - tb3_lidar_noise

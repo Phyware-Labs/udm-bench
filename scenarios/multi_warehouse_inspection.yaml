@@ -1,0 +1,58 @@
+id: multi_warehouse_inspection
+composition: multi-vendor
+vendors: [tb3, px4]
+world: multi_vendor_warehouse
+description: >
+  Multi-vendor scenario: one TurtleBot3 ground-patrolling and one PX4 SITL
+  drone hovering / surveying inside multi_vendor_warehouse. Faults are
+  equally likely on either platform — this is the headline scenario for
+  the benchmark's cross-vendor attribution metric.
+mission_template:
+  duration_s: 180
+  tb3:
+    waypoints:
+      - { x: 1.5, y: 0.0 }
+      - { x: 4.0, y: 0.0 }
+      - { x: 4.0, y: 3.0 }
+      - { x: 0.0, y: 3.0 }
+  px4:
+    takeoff_alt_m: 8.0
+    waypoints:
+      - { lat_offset_m: 5.0, lon_offset_m: 5.0,  alt_m: 8.0 }
+      - { lat_offset_m: 5.0, lon_offset_m: -5.0, alt_m: 8.0 }
+  recorder:
+    bag_topics_tb3:
+      - /scan
+      - /odom
+      - /imu
+      - /cmd_vel
+      - /battery_state
+    bag_topics_px4:
+      - /fmu/out/vehicle_global_position
+      - /fmu/out/vehicle_attitude
+      - /fmu/out/battery_status
+fault_mix:
+  fault_probability: 0.5
+  vendor_weights:
+    tb3: 0.5
+    px4: 0.5
+  eligible_fault_ids:
+    - tb3_lidar_dropout
+    - tb3_lidar_noise
+    - tb3_motor_stall
+    - tb3_odometry_drift
+    - tb3_imu_bias
+    - tb3_amcl_failure
+    - tb3_map_mismatch
+    - tb3_costmap_inflation_drift
+    # PX4 faults are limited to the two that are observable end-to-end today:
+    # gps_dropout (drop /fmu/out/vehicle_global_position) and imu_saturation
+    # (override /fmu/out/vehicle_attitude), both via the PX4 fault relay. The
+    # remaining PX4 faults need extra DDS publications / input-side handling and
+    # are deferred (battery_sag, rc_link_loss, motor_failure).
+    - px4_gps_dropout
+    - px4_imu_saturation
+# PX4 GPS/EKF warmup means /fmu telemetry only starts flowing ~25-40 s after
+# boot, so the fault injection window is pushed later than the single-vendor
+# default (mission._DEFAULT_INJECTION_WINDOW) so PX4 faults land in real data.
+injection_window_s: [45, 110]
